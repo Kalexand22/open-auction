@@ -1,0 +1,12 @@
+apply plugin: "com.axelor.app-module"
+
+
+axelor {
+	title "Open Auction Referentiel"
+	description "Open Auction - référentiel de base"
+} 
+
+dependencies {
+	api project(":modules:axelor-base")
+	api project(":modules:axelor-account")	
+}
