@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
-<domain-models xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://axelor.com/xml/ns/domain-models">
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
   <module name="openauction" package="com.axelor.apps.openauction.db"/>
   <entity name="AuctionHeader">
     <string name="no" title="N°"/>
@@ -11,7 +12,7 @@
       ref="com.axelor.apps.openauction.db.AuctionRoom"/>
     <many-to-one name="biddingPaddleSet" title="N° jeu plaquette"
       ref="com.axelor.apps.openauction.db.BiddingPaddleSet"/>
-
+      
     <many-to-one name="auctionnerCode" title="Commissaire-priseur"
       ref="com.axelor.auth.db.User"/>
     <string name="auctionType" title="Type vente" selection="openauction.auctionType.select"/>
