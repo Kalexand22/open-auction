@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<domain-models xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://axelor.com/xml/ns/domain-models">
+  <module name="openauction" package="com.axelor.apps.openauction.db"/>
+  <entity name="MissionServiceLine">
+    <integer name="entryNo" title="N° séquence"/>
+    <many-to-one name="missionNo" title="N° mission"
+      ref="com.axelor.apps.openauction.db.MissionHeader"/>
+    <many-to-one name="auctionNo" title="N° vente"
+      ref="com.axelor.apps.openauction.db.AuctionHeader"/>
+    <many-to-one name="lotNo" title="N° lot" ref="com.axelor.apps.openauction.db.Lot"/>
+    <string name="transactionType" title="Type de transaction"
+      selection="openauction.transactionType.select"/>
+    <integer name="transactionLineNo" title="N° ligne transaction"/>
+    <string name="type" title="Type" selection="openauction.type.select"/>
+    <string name="description" title="Désignation"/>
+    <decimal name="quantity" title="Quantité"/>
+    <decimal name="qtytoInvoice" title="Qté à facturer"/>
+    <decimal name="invoicedQuantity" title="Quantité facturée"/>
+    <decimal name="outstandingQuantity" title="Quantité restante"/>
+    <boolean name="auctionBid" title="Adjudication"/>
+    <string name="lotPriceGroup" title="Groupe prix lot"/>
+    <string name="contactPriceGroup" title="Groupe prix contact"/>
+    <string name="chargeableContactNo" title="N° contact facturable"/>
+    <date name="priceDate" title="Date tarif"/>
+    <decimal name="unitPrice" title="Prix unitaire"/>
+    <decimal name="amount" title="Montant HT"/>
+    <decimal name="amountInclVAT" title="Montant TTC"/>
+    <decimal name="commissionPercent" title="% commission"/>
+    <decimal name="unitCost" title="Coût unitaire"/>
+    <decimal name="costAmount" title="Montant coût"/>
+    <decimal name="amountToInvoiceInclVAT" title="Montant à facturer TTC"/>
+    <boolean name="completelyInvoiced" title="Entièrement facturé"/>
+    <many-to-one name="unitofMeasureCode" title="Code unité de mesure"
+      ref="com.axelor.apps.base.db.Unit"/>
+    <string name="invoicingType" title="Type facturation"
+      selection="openauction.invoicingType.select"/>
+    <string name="commissionType" title="Type honoraire"
+      selection="openauction.commissionType.select"/>
+    <string name="contactImputationType" title="Type imputation contact"
+      selection="openauction.contactImputationType.select"/>
+    <string name="lotImputationType" title="Type imputation lot"
+      selection="openauction.lotImputationType.select"/>
+    <string name="serviceType" title="Type prestation"
+      selection="openauction.serviceType.select"/>
+    <string name="imputationBase" title="Base Imputation"
+      selection="openauction.imputationBase.select"/>
+    <boolean name="chargeable" title="Facturable"/>
+    <boolean name="estimatedValue" title="Valeur estimée"/>
+    <decimal name="referenceAmount" title="Montant référence"/>
+    <string name="calculationType" title="Type calcul"
+      selection="openauction.calculationType.select"/>
+    <decimal name="qtyperUnitOfMeasure" title="Qté par unité de mesure"/>
+    <string name="missionTemplateCode" title="Code modèle Mission"/>
+    <string name="auctionTemplateCode" title="Code modèle vente"/>
+    <string name="lotTemplateCode" title="Code modèle lot"/>
+    <string name="misServiceTemplateCode" title="Code modèle prestation"/>
+    <boolean name="priceIncludesVAT" title="Prix TTC"/>
+    <decimal name="servicePercent" title="% prestation"/>
+    <boolean name="acceptToInvoice" title="Accepter pour facturation"/>
+    <many-to-one name="genProdPostingGroup" title="Groupe compta. produit"
+      ref="com.axelor.apps.base.db.ProductFamily"/>
+    <many-to-one name="sellerVATBusPostingGroup"
+      title="Groupe compta. marché TVA vendeur" ref="com.axelor.apps.account.db.Tax"/>
+    <many-to-one name="buyerVATBusPostingGroup"
+      title="Groupe compta. marché TVA acheteur" ref="com.axelor.apps.account.db.Tax"/>
+    <many-to-one name="vATProdPostingGroup" title="Groupe compta. produit TVA"
+      ref="com.axelor.apps.account.db.Tax"/>
+    <string name="vATCalculationType" title="Mode calcul TVA"
+      selection="openauction.vATCalculationType.select"/>
+    <decimal name="vATPercent" title="% TVA"/>
+    <string name="vATIdentifier" title="Identifiant TVA"/>
+    <many-to-one name="currencyCode" title="Code devise"
+      ref="com.axelor.apps.base.db.Currency"/>
+    <boolean name="notCalculatePriceOnInvoice" title="Ne pas calculer prix sur facture"/>
+    <many-to-one name="activityHeader" title="En-tête activité"
+      ref="com.axelor.apps.openauction.db.ActivityHeader"/>
+    <integer name="activityLine" title="Ligne activité"/>
+    <boolean name="invoice" title="Facturer"/>
+    <boolean name="customerDues" title="Importation douanière"/>
+    <boolean name="appreciation" title="Plus-value"/>
+    <boolean name="advanceOnSale" title="Avance sur vente"/>
+    <string name="documentType" title="Type de document"
+      selection="openauction.documentType.select"/>
+    <decimal name="reserveVariance" title="Ecart sur réserve"/>
+    <many-to-one name="responsibilityCenter" title="Centre de gestion"
+      ref="com.axelor.apps.openauction.db.RespCenter"/>
+    <boolean name="auctionInclVAT" title="Vente TTC"/>
+    <boolean name="marginBasedVAT" title="Assujetti TVA sur marge"/>
+    <boolean name="resaleRight" title="Droit de suite"/>
+    <many-to-one name="organizationContact" title="Contact organisme"
+      ref="com.axelor.apps.base.db.Partner"/>
+    <decimal name="outstandingAmount" title="Montant restant"/>
+    <boolean name="fixedAmount" title="Montant imposé"/>
+    <string name="overheadInvoiceNo" title="N° facture FG"/>
+    <decimal name="overheadInvoicedAmount" title="Montant facturé FG"/>
+    <string name="cancelled" title="Annulé" selection="openauction.cancelled.select"/>
+  </entity>
+</domain-models>

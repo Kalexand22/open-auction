@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<object-views xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://axelor.com/xml/ns/object-views">
+  <form name="mission-creation-wizard-form" model="com.axelor.openauction.db.MissionHeader">
+
+    <panel name="stepStatusPanel" colSpan="12">
+      <field name="stepStatusSelect" showTitle="false" readonly="true" colSpan="12"
+        widget="NavSelect"/>
+      <panel name="buttonPanel" colSpan="12">
+        <button name="previousBtn" readonlyIf="stepStatusSelect &lt; 1" colSpan="1"
+          icon="fa-caret-left" onClick="action-user-group-previous-button"/>
+        <button name="nextBtn" readonlyIf="stepStatusSelect > 3" colSpan="1"
+          icon="fa-caret-right" onClick="action-user-group-next-button"/>
+        <button name="validateBtn" title="Validate" showIf="stepStatusSelect == 4"
+          onClick="action-user-record-step-status-next,save"/>
+      </panel>
+    </panel>
+    <panel name="MainPanel">
+      <field title="Type de mission" name="missionType"/>
+      <field name="code"/>
+      <field name="description"/>
+      <field title="Titre mission" name="missionTitle"/>
+      <field title="Centre de gestion" name="responsibilityCenter"/>
+      <field title="Code activité pour lignes" name="activityCodeToLine"/>
+      <field title="N° contact principal" name="masterContactNo"/>
+      <field title="Code activité pour en-tête" name="activityCodeToHeader"/>
+      <field title="Code commissaire-priseur" name="auctioneerCode"/>
+      <field title="N° mission d'origine" name="originMissionNo"/>
+      <field title="Responsable mission" name="missionManagerCode"/>
+    </panel>
+  </form>
+</object-views>

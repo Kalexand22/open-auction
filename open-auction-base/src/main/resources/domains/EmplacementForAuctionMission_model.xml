@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<domain-models xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://axelor.com/xml/ns/domain-models">
+  <module name="openauction" package="com.axelor.apps.openauction.db"/>
+  <entity name="EmplacementForAuctionMission">
+    <string name="emplacementNo" title="N° case"/>
+    <string name="emplacementDescription" title="Désignation case"/>
+    <integer name="emplacementIntegerType" title="N° case si numéro"/>
+  </entity>
+</domain-models>

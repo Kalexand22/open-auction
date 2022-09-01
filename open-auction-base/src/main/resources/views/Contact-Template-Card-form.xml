@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<object-views xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://axelor.com/xml/ns/object-views">
+
+  <grid name="contact-template-grid" title="Modèles de mission"
+    model="com.axelor.apps.openauction.db.ContactTemplate">
+    <field name="code"/>
+    <field name="description"/>
+    <field name="businessRelationCode"/>
+    <field name="industryGroupCode"/>
+    <field name="vIP"/>
+    <field name="createDate"/>
+    <field name="createdBy"/>
+    <field name="lastModified"/>
+    <field name="modifiedBy"/>
+    <field name="customerPostingGroup"/>
+    <field name="vendorPostingGroup"/>
+    <field name="genBusPostingGroup"/>
+    <field name="vATBusPostingGroup"/>
+  </grid>
+
+  <form name="contact-template-form" title="Modèles de mission"
+    model="com.axelor.apps.openauction.db.ContactTemplate">
+    <panel name="MainPanel"/>
+    <panel-tabs name="panelTab1">
+      <panel title="Général" name="general">
+        <field name="code"/>
+        <field name="description"/>
+        <field name="currencyCode"/>
+        <field name="countryCode"/>
+        <field name="vIP"/>
+        <field name="locationCode"/>
+        <field name="paymentTermsCode"/>
+        <field name="customerPostingGroup"/>
+        <field name="vendorPostingGroup"/>
+        <field name="genBusPostingGroup"/>
+        <field name="vATBusPostingGroup"/>
+        <field name="contactMissionPriceGroup"/>
+        <field name="contactAuctionPriceGroup"/>
+        <field name="businessRelationCode"/>
+        <field name="industryGroupCode"/>
+        <field title="Exonéré,Forfait,Réel" name="addedValueType"/>
+        <field name="preemptingAuthorized"/>
+        <field name="freeReasonCode"/>
+      </panel>
+      <panel title="Divers" name="divers">
+        <field name="contactTemplateColor"/>
+        <field name="createDate"/>
+        <field name="createdBy"/>
+        <field name="lastModified"/>
+        <field name="modifiedBy"/>
+      </panel>
+    </panel-tabs>
+  </form>
+</object-views>

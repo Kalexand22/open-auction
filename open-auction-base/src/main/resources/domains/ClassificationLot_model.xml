@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<domain-models xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://axelor.com/xml/ns/domain-models">
+  <module name="openauction" package="com.axelor.apps.openauction.db"/>
+  <entity name="ClassificationLot">
+    <many-to-one name="lotNo" title="N° lot" ref="com.axelor.apps.openauction.db.Lot"/>
+    <integer name="category1" title="Thème 1"/>
+    <integer name="category2" title="Thème 2"/>
+    <integer name="category3" title="Thème 3"/>
+    <integer name="category4" title="Thème 4"/>
+    <many-to-one name="vATProductPostingGroup" title="Groupe compta. produit TVA"
+      ref="com.axelor.apps.account.db.Tax"/>
+    <many-to-one name="auctionProductPostingGroup"
+      title="Groupe compta. produit adjudication" ref="com.axelor.apps.account.db.Tax"/>
+    <boolean name="highlightedLot" title="Lot phare"/>
+    <boolean name="webDiffusion" title="Diffusion Internet"/>
+  </entity>
+</domain-models>
