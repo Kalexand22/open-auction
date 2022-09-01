@@ -15,6 +15,5 @@
     <string name="noSeries" title="Souches de n°"/>
     <many-to-one name="responsibilityCenter" title="Centre de gestion" ref="com.axelor.apps.base.db.TradingName"/>
     <one-to-many ref="com.axelor.apps.openauction.db.ActivityLine"  name="activityLineList" mappedBy="activityCode"/>
-    <string name="test" title="test"/>
   </entity>
 </domain-models>
