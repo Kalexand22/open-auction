@@ -50,7 +50,7 @@
     <date name="recoveryDate" title="Date de redressement"/>
     <date name="judgementDate" title="Date de jugement"/>
     <many-to-one name="responsibilityCenter" title="Centre de gestion"
-      ref="com.axelor.apps.openauction.db.RespCenter"/>
+      ref="com.axelor.apps.base.db.TradingName"/>
     <string name="fileNo" title="N° dossier"/>
     <string name="appointmentType" title="Type RdV"
       selection="openauction.appointmentType.select"/>

@@ -84,7 +84,7 @@
       selection="openauction.documentType.select"/>
     <decimal name="reserveVariance" title="Ecart sur réserve"/>
     <many-to-one name="responsibilityCenter" title="Centre de gestion"
-      ref="com.axelor.apps.openauction.db.RespCenter"/>
+      ref="com.axelor.apps.base.db.TradingName"/>
     <boolean name="auctionInclVAT" title="Vente TTC"/>
     <boolean name="marginBasedVAT" title="Assujetti TVA sur marge"/>
     <boolean name="resaleRight" title="Droit de suite"/>

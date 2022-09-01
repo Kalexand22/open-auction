@@ -16,7 +16,7 @@
     <many-to-one name="contactTemplateFilter" title="Filtre modèle contact"
       ref="com.axelor.apps.openauction.db.ContactTemplate"/>
     <many-to-one name="responsibilityCenter" title="Centre de gestion"
-      ref="com.axelor.apps.openauction.db.RespCenter"/>
+      ref="com.axelor.apps.base.db.TradingName"/>
     <many-to-one name="defaultMissionTemplate" title="Modèle mission par défaut"
       ref="com.axelor.apps.openauction.db.MissionTemplate"/>
     <string name="processType" title="Type de procédure"
@@ -32,14 +32,12 @@
       title="Code activité pour en-tête matériel"
       ref="com.axelor.apps.openauction.db.ActivityHeader"/>
     <many-to-one name="activityCodeToLinesEqu"
-      title="Code activité pour lignes matériel"
-      ref="com.axelor.apps.openauction.db.ActivityHeader"/>
+      title="Code activité pour lignes matériel" ref="com.axelor.apps.openauction.db.ActivityHeader"/>
     <many-to-one name="activityCodeToHeaderVeh"
       title="Code activité pour en-tête véhicule"
       ref="com.axelor.apps.openauction.db.ActivityHeader"/>
     <many-to-one name="activityCodeToLinesVeh"
-      title="Code activité pour lignes véhicule"
-      ref="com.axelor.apps.openauction.db.ActivityHeader"/>
+      title="Code activité pour lignes véhicule" ref="com.axelor.apps.openauction.db.ActivityHeader"/>
     <boolean name="doNotCreateLawyerVeh" title="Ne pas créer l'affaire"/>
     <boolean name="doNotCreateLawyerEqu" title="Ne pas créer l'affaire"/>
     <string name="vehiC1BusRelation" title="Relation d'affaire C.1"/>

@@ -149,7 +149,7 @@
     <string name="creationProcess" title="Process de création"
       selection="openauction.creationProcess.select"/>
     <many-to-one name="responsibilityCenter" title="Centre de gestion"
-      ref="com.axelor.apps.openauction.db.RespCenter"/>
+      ref="com.axelor.apps.base.db.TradingName"/>
     <boolean name="webLock" title="Verrou internet"/>
     <boolean name="webAuctionable" title="Exportable à la vente en ligne"/>
     <many-to-one name="globalDimension1Code" title="Code axe principal 1"
@@ -198,8 +198,8 @@
       ref="com.axelor.apps.purchase.db.PurchaseOrderLine" title="Liste des contacts"/>
     <many-to-many name="taskList" ref="com.axelor.team.db.TeamTask"
       title="Liste des tâches"/>
-    <one-to-many name="optionList"
-      ref="com.axelor.apps.openauction.db.VehicleLotOption" title="Liste des options"/>
+    <one-to-many name="optionList" ref="com.axelor.apps.openauction.db.VehicleLotOption"
+      title="Liste des options"/>
 
     <one-to-many name="postedAbsenteeBidLineList"
       ref="com.axelor.apps.openauction.db.PostedAbsenteeBidLine" title="Liste des ordres d'achat'"

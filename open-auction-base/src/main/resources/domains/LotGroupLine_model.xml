@@ -12,8 +12,7 @@
     <integer name="groupingNo" title="N° groupement"/>
     <many-to-one name="auctionNo" title="N° vente"
       ref="com.axelor.apps.openauction.db.AuctionHeader"/>
-    <many-to-one name="subLotNo" title="N° lot"
-      ref="com.axelor.apps.openauction.db.Lot"/>
+    <many-to-one name="subLotNo" title="N° lot" ref="com.axelor.apps.openauction.db.Lot"/>
     <many-to-one name="auctionLine" title="Ligne de vente"
       ref="com.axelor.apps.openauction.db.AuctionLine"/>
     <string name="lotDescription" title="Désignation lot"/>

@@ -6,10 +6,8 @@
   <module name="project" package="com.axelor.team.db"/>
 
   <entity name="TeamTask" lang="java">
-    <many-to-one ref="com.axelor.apps.openauction.db.AuctionHeader"
-      name="auctionHeader"></many-to-one>
-    <many-to-one ref="com.axelor.apps.openauction.db.MissionHeader"
-      name="missionHeader"></many-to-one>
+    <many-to-one ref="com.axelor.apps.openauction.db.AuctionHeader" name="auctionHeader"></many-to-one>
+    <many-to-one ref="com.axelor.apps.openauction.db.MissionHeader" name="missionHeader"></many-to-one>
   </entity>
 
 </domain-models>

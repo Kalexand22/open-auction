@@ -15,6 +15,6 @@
       selection="openauction.applicableOn.select"/>
     <string name="noSeries" title="Souches de n°"/>
     <many-to-one name="responsibilityCenter" title="Centre de gestion"
-      ref="com.axelor.apps.openauction.db.RespCenter"/>
+      ref="com.axelor.apps.base.db.TradingName"/>
   </entity>
 </domain-models>

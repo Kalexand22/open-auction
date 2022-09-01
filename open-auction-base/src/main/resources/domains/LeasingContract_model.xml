@@ -5,7 +5,7 @@
   <entity name="LeasingContract">
     <string name="leasingContractNo" title="N° contrat"/>
     <many-to-one name="responsabilityCenter" title="Centre de gestion"
-      ref="com.axelor.apps.openauction.db.RespCenter"/>
+      ref="com.axelor.apps.base.db.TradingName"/>
     <many-to-one name="leasingContactNo" title="N° contact"
       ref="com.axelor.apps.base.db.Partner"/>
     <string name="contractLeasingDescription" title="Désignation contrat"/>

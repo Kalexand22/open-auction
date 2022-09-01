@@ -15,8 +15,7 @@
     <string name="schoolType" title="Type école" selection="openauction.schoolType.select"/>
     <many-to-one name="school" title="Ecole" ref="com.axelor.apps.openauction.db.Code"/>
     <many-to-one name="style" title="Style" ref="com.axelor.apps.openauction.db.Code"/>
-    <many-to-one name="century" title="Siècle"
-      ref="com.axelor.apps.openauction.db.Code"/>
+    <many-to-one name="century" title="Siècle" ref="com.axelor.apps.openauction.db.Code"/>
     <many-to-one name="historicalPeriod" title="Période historique"
       ref="com.axelor.apps.openauction.db.Code"/>
     <string name="institutionRightNo" title="N° ADAGP"/>

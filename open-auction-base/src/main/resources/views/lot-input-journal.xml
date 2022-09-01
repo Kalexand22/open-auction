@@ -15,8 +15,7 @@
   </grid>
 
   <form name="lot-input-journal-form" title="Saisie des ligne de mission"
-    model="com.axelor.apps.openauction.db.Lot" width="large"
-    onNew="action-record-lot-set-mission2">
+    model="com.axelor.apps.openauction.db.Lot" width="large" onNew="action-record-lot-set-mission2">
     <toolbar>
       <button name="valider" title="Valider" onClick="action-validate-lot-input-journal"/>
     </toolbar>

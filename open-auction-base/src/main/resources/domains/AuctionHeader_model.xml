@@ -14,8 +14,7 @@
 
     <many-to-one name="auctionnerCode" title="Commissaire-priseur"
       ref="com.axelor.auth.db.User"/>
-    <string name="auctionType" title="Type vente"
-      selection="openauction.auctionType.select"/>
+    <string name="auctionType" title="Type vente" selection="openauction.auctionType.select"/>
     <many-to-one name="currencyCode" title="Code devise"
       ref="com.axelor.apps.base.db.Currency"/>
     <decimal name="currencyFactor" title="Facteur devise"/>
@@ -93,7 +92,7 @@
     <boolean name="autoSearchBuyer" title="Recherche acheteur auto"/>
     <integer name="docNoOccurrence" title="Occurrence n° doc."/>
     <many-to-one name="responsibilityCenter" title="Centre de gestion"
-      ref="com.axelor.apps.openauction.db.RespCenter"/>
+      ref="com.axelor.apps.base.db.TradingName"/>
     <integer name="noofAuctionDays" title="Nbre de jours de vente"/>
     <boolean name="vehicleAuction" title="Vente véhicule"/>
     <boolean name="euipmentAuction" title="Vente matériel"/>
@@ -111,18 +110,17 @@
     <boolean name="setVATExemption" title="Appliquer franchise de TVA"/>
     <decimal name="totalExpectedAuctionAmount" title="Montant prévisionnel"/>
     <decimal name="basebuyerCommissionOnAuction" title="Hono. acheteurs pour cette vente"/>
-    <one-to-many name="auctionLineList"
-      ref="com.axelor.apps.openauction.db.AuctionLine" title="Liste des lots" mappedBy="auctionNo"/>
+    <one-to-many name="auctionLineList" ref="com.axelor.apps.openauction.db.AuctionLine"
+      title="Liste des lots" mappedBy="auctionNo"/>
     <many-to-one name="picture" ref="com.axelor.meta.db.MetaFile" initParam="true"/>
 
     <many-to-many name="buyerList" ref="com.axelor.apps.base.db.Partner"/>
     <many-to-one name="coorganisatorRespCenter" title="Co-organisateur"
-      ref="com.axelor.apps.openauction.db.RespCenter"/>
+      ref="com.axelor.apps.base.db.TradingName"/>
     <many-to-many name="contributorRespCenter" title="Contributeurs"
-      ref="com.axelor.apps.openauction.db.RespCenter"/>
-    <one-to-many name="siteAuctionList"
-      ref="com.axelor.apps.openauction.db.SiteAuction" title="Liste des publications"
-      mappedBy="auctionNo"/>
+      ref="com.axelor.apps.base.db.TradingName"/>
+    <one-to-many name="siteAuctionList" ref="com.axelor.apps.openauction.db.SiteAuction"
+      title="Liste des publications" mappedBy="auctionNo"/>
     <one-to-many name="auctionSiteUpdateHistoryList"
       ref="com.axelor.apps.openauction.db.AuctionSiteUpdateHistory"
       title="Historique des publications" mappedBy="auctionNo"/>

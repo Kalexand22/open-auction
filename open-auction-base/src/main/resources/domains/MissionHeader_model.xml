@@ -111,7 +111,7 @@
       selection="openauction.masterContPriorityPhone.select"/>
     <integer name="docNoOccurrence" title="Occurrence n° doc."/>
     <many-to-one name="responsibilityCenter" title="Centre de gestion"
-      ref="com.axelor.apps.openauction.db.RespCenter"/>
+      ref="com.axelor.apps.base.db.TradingName"/>
     <many-to-one name="centralizedVendorNo" title="N° fournisseur centralisé"
       ref="com.axelor.apps.base.db.Partner"/>
     <boolean name="marginBasedVAT" title="Assujetti TVA sur marge"/>
@@ -128,8 +128,7 @@
       ref="com.axelor.apps.openauction.db.LawyerBusiness"/>
     <string name="processType" title="Type procédure"
       selection="openauction.processType.select"/>
-    <string name="fileStatus" title="Statut saisie"
-      selection="openauction.fileStatus.select"/>
+    <string name="fileStatus" title="Statut saisie" selection="openauction.fileStatus.select"/>
     <many-to-one name="defaultLotTemplate" title="Modèle lot par défaut"
       ref="com.axelor.apps.openauction.db.LotTemplate"/>
     <string name="paraLawyerBusNo" title="N° affaire d'origine"/>
@@ -177,8 +176,8 @@
     <decimal name="auctionProductAmount" title="Montant produit vente"/>
     <decimal name="inAccountAmount" title="Montant en compte"/>
     <decimal name="inAccountAtDate" title="Montant en compte à date"/>
-    <one-to-many name="missionLineList"
-      ref="com.axelor.apps.openauction.db.MissionLine" mappedBy="missionNo"/>
+    <one-to-many name="missionLineList" ref="com.axelor.apps.openauction.db.MissionLine"
+      mappedBy="missionNo"/>
     <one-to-many name="lotList" ref="com.axelor.apps.openauction.db.Lot"
       mappedBy="currentMissionNo"/>
     <one-to-many name="taskList" ref="com.axelor.team.db.TeamTask"

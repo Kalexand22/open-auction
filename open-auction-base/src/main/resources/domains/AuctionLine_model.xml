@@ -11,8 +11,7 @@
     <decimal name="quantity" title="Quantité"/>
     <decimal name="bidPrice" title="Adjugé"/>
     <decimal name="startPrice" title="Mise à prix"/>
-    <string name="lineStatus" title="Statut ligne"
-      selection="openauction.lineStatus.select"/>
+    <string name="lineStatus" title="Statut ligne" selection="openauction.lineStatus.select"/>
     <many-to-one name="missionNo" title="N° mission"
       ref="com.axelor.apps.openauction.db.MissionHeader"/>
     <many-to-one name="missionLineNo" title="N° ligne mission"

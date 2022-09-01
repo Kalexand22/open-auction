@@ -8,8 +8,7 @@
     <many-to-one name="auctionRoom" title="Salle de vente"
       ref="com.axelor.apps.openauction.db.AuctionRoom"/>
     <string name="auctionnerCode" title="Commissaire-priseur"/>
-    <string name="auctionType" title="Type vente"
-      selection="openauction.auctionType.select"/>
+    <string name="auctionType" title="Type vente" selection="openauction.auctionType.select"/>
     <string name="salespersonCode" title="Code intervenant"/>
     <many-to-one name="activityCodeToHeader" title="Code activité pour en-tête"
       ref="com.axelor.apps.openauction.db.ActivityHeader"/>
@@ -48,7 +47,7 @@
     <many-to-one name="defaultBondMode" title="Mode caution par défaut"
       ref="com.axelor.apps.account.db.PaymentMode"/>
     <many-to-one name="responsibilityCenter" title="Centre de gestion"
-      ref="com.axelor.apps.openauction.db.RespCenter"/>
+      ref="com.axelor.apps.base.db.TradingName"/>
     <boolean name="vehicleAuction" title="Vente véhicule"/>
     <boolean name="equipmentAuction" title="Vente matériel"/>
     <boolean name="internetAuction" title="Vente en ligne"/>
