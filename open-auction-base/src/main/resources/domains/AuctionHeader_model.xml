@@ -12,7 +12,7 @@
       ref="com.axelor.apps.openauction.db.AuctionRoom"/>
     <many-to-one name="biddingPaddleSet" title="N° jeu plaquette"
       ref="com.axelor.apps.openauction.db.BiddingPaddleSet"/>
-      
+
     <many-to-one name="auctionnerCode" title="Commissaire-priseur"
       ref="com.axelor.auth.db.User"/>
     <string name="auctionType" title="Type vente" selection="openauction.auctionType.select"/>
