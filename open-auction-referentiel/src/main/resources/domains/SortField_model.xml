@@ -8,7 +8,7 @@
     <integer name="startPosition" title="Position début"/>
     <integer name="endPosition" title="Position fin"/>
     <integer name="length" title="Longueur de champ"/>
-    <decimal name="divisor" title="Diviseur"/>    
+    <decimal name="divisor" title="Diviseur"/>
     <boolean name="newPage" title="Changement de page"/>
     <boolean name="header" title="Titre"/>
     <boolean name="footer" title="Total"/>

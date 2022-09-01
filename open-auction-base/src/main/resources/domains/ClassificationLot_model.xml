@@ -8,10 +8,8 @@
     <integer name="category2" title="Thème 2"/>
     <integer name="category3" title="Thème 3"/>
     <integer name="category4" title="Thème 4"/>
-    <many-to-one name="vATProductPostingGroup" title="Groupe compta. produit TVA"
-      ref="com.axelor.apps.account.db.Tax"/>
-    <many-to-one name="auctionProductPostingGroup"
-      title="Groupe compta. produit adjudication" ref="com.axelor.apps.account.db.Tax"/>
+    <many-to-one name="productFamily" title="Famille comptable de produit"
+      ref="com.axelor.apps.base.db.ProductFamily"/>
     <boolean name="highlightedLot" title="Lot phare"/>
     <boolean name="webDiffusion" title="Diffusion Internet"/>
   </entity>

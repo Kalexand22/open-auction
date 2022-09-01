@@ -55,10 +55,8 @@
       ref="com.axelor.apps.openauction.db.ClassificationMembers"/>
     <many-to-one name="lotCategorie4Code" title="Code catégorie 4"
       ref="com.axelor.apps.openauction.db.ClassificationMembers"/>
-    <many-to-one name="auctionProdPostingGroup"
-      title="Groupe compta produit adjudication" ref="com.axelor.apps.base.db.ProductFamily"/>
-    <many-to-one name="vATProdPostingGroup" title="Groupe compta produit TVA"
-      ref="com.axelor.apps.account.db.Tax"/>
+    <many-to-one name="productFamilyAdj" title="Famille compta produit adjudication"
+      ref="com.axelor.apps.base.db.ProductFamily"/>
     <many-to-one name="lotMissionPriceGroup" title="Groupe tarif mission lot"
       ref="com.axelor.apps.openauction.db.MissionLotPriceGroup"/>
     <many-to-one name="lotAuctionPriceGroup" title="Groupe tarif vente lot"

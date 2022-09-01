@@ -24,10 +24,8 @@
     <decimal name="maxAuctionEstimValue" title="Valeur estimation vente max"/>
     <decimal name="grossReservePrice" title="Prix réserve brut"/>
     <decimal name="netReservePrice" title="Prix réserve net"/>
-    <many-to-one name="auctionProdPostingGroup"
-      title="Groupe compta produit adjudication" ref="com.axelor.apps.base.db.ProductFamily"/>
-    <many-to-one name="vATProdPostingGroup" title="Groupe compta produit TVA"
-      ref="com.axelor.apps.account.db.Tax"/>
+    <many-to-one name="productFamilyAdj" title="Famille comptable produit adjudication"
+      ref="com.axelor.apps.base.db.ProductFamily"/>
     <many-to-one name="lotConditionCode" title="Etat lot"
       ref="com.axelor.apps.openauction.db.Code"/>
     <string name="externalNo" title="N° externe"/>
@@ -62,8 +60,6 @@
       ref="com.axelor.apps.openauction.db.Code"/>
     <many-to-one name="interlocutor" title="Interlocuteur"
       ref="com.axelor.apps.base.db.Partner"/>
-
-
     <many-to-one name="lotNatureCode" title="Nature lot"
       ref="com.axelor.apps.openauction.db.LotNature"/>
     <string name="catalogDescription" title="Description catalogue" large="true"

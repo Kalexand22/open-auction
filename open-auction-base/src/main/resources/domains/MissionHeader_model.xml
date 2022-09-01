@@ -80,9 +80,9 @@
     <string name="sellerInvStatementPeriod" title="Période décompte vente"/>
     <boolean name="specificAuctPricingPolicy" title="Application tarif spec. vente"/>
     <boolean name="nonChargeable" title="Charges non facturables"/>
-    <string name="genBusPostingGroup" title="Groupe compta marché"/>
-    <many-to-one name="vATBusinessPostingGroup" title="Groupe compta. marché TVA"
-      ref="com.axelor.apps.account.db.Tax"/>
+
+    <many-to-one name="fiscalPosition" title="Position fiscale"
+      ref="com.axelor.apps.account.db.FiscalPosition"/>
     <many-to-one name="missionComContactGroup" title="Groupe tarifs mission contact"
       ref="com.axelor.apps.openauction.db.MissionContactPriceGroup"/>
     <many-to-one name="currencyCode" title="Code devise"
@@ -145,13 +145,6 @@
     <decimal name="recoveryRealDisposable" title="Disponible Reel"/>
     <many-to-one name="emplacementNo" title="N° de case"
       ref="com.axelor.apps.openauction.db.ShelvingEmplacement"/>
-    <decimal name="mainDebtold" title="Old_Dette principale"/>
-    <decimal name="feespayabletobailiffold" title="Old_Frais dus à l'huissier"/>
-    <decimal name="advancepaidtobailiffold" title="Old_Acpt. versés à l'huissier"/>
-    <decimal name="updateFeesold" title="Old_Actualisation"/>
-    <decimal name="interestFeesold" title="Old_Intérêts"/>
-    <decimal name="paymentstoCorrespondentold" title="Old_Règlts au correspondant"/>
-    <decimal name="provisionold" title="Old_Provision"/>
     <string name="debtorLawyer" title="Avocat du débiteur"/>
     <string name="creditorsLawyer" title="Avocat du requérant"/>
     <many-to-one name="representativeofCreditors" title="Requérant"

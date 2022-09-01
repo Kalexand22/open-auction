@@ -10,7 +10,6 @@
       ref="com.axelor.apps.account.db.AnalyticAxis"/>
     <many-to-one name="globalDimension2Code" title="Code axe principal 2"
       ref="com.axelor.apps.account.db.AnalyticAxis"/>
-    <string name="vendorPostingGroup" title="Groupe compta. fournisseur"/>
     <many-to-one name="currencyCode" title="Code devise"
       ref="com.axelor.apps.base.db.Currency"/>
     <many-to-one name="paymentTermsCode" title="Code conditions paiement"
@@ -22,9 +21,8 @@
     <string name="countryRegionCode" title="Code pays/région"/>
     <many-to-one name="paymentMethodCode" title="Code mode de règlement"
       ref="com.axelor.apps.account.db.PaymentMode"/>
-    <string name="genBusPostingGroup" title="Groupe compta. marché"/>
-    <many-to-one name="vATBusPostingGroup" title="Groupe compta. marché TVA"
-      ref="com.axelor.apps.account.db.Tax"/>
+    <many-to-one name="fiscalPosition" title="Position fiscale"
+      ref="com.axelor.apps.account.db.FiscalPosition"/>
     <string name="vendorNos" title="N° fournisseur"/>
     <boolean name="pricesIncludingVAT" title="Prix TTC"/>
     <string name="businessRelationCode" title="Code relation d'affaire"/>

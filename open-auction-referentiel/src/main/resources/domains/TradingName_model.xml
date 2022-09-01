@@ -2,7 +2,7 @@
 <domain-models xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://axelor.com/xml/ns/domain-models">
   <module name="openauction" package="com.axelor.apps.base.db"/>
-  <entity name="TradingName">    
+  <entity name="TradingName">
     <many-to-one name="globalDimension1Code" title="Code axe principal 1"
       ref="com.axelor.apps.account.db.AnalyticAxis"/>
     <many-to-one name="globalDimension2Code" title="Code axe principal 2"

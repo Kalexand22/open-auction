@@ -58,14 +58,13 @@
     <boolean name="priceIncludesVAT" title="Prix TTC"/>
     <decimal name="servicePercent" title="% prestation"/>
     <boolean name="acceptToInvoice" title="Accepter pour facturation"/>
-    <many-to-one name="genProdPostingGroup" title="Groupe compta. produit"
+    <many-to-one name="productFamily" title="Famille compta. produit"
       ref="com.axelor.apps.base.db.ProductFamily"/>
-    <many-to-one name="sellerVATBusPostingGroup"
-      title="Groupe compta. marché TVA vendeur" ref="com.axelor.apps.account.db.Tax"/>
-    <many-to-one name="buyerVATBusPostingGroup"
-      title="Groupe compta. marché TVA acheteur" ref="com.axelor.apps.account.db.Tax"/>
-    <many-to-one name="vATProdPostingGroup" title="Groupe compta. produit TVA"
-      ref="com.axelor.apps.account.db.Tax"/>
+    <many-to-one name="sellerFiscalPosition" title="Position fiscale vendeur"
+      ref="com.axelor.apps.account.db.FiscalPosition"/>
+    <many-to-one name="buyerFiscalPosition" title="Position fiscale acheteur"
+      ref="com.axelor.apps.account.db.FiscalPosition"/>
+
     <string name="vATCalculationType" title="Mode calcul TVA"
       selection="openauction.vATCalculationType.select"/>
     <decimal name="vATPercent" title="% TVA"/>

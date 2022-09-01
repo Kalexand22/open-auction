@@ -29,8 +29,8 @@
     <boolean name="bidCardNoAuthorized" title="Plaquettes vente autorisées"/>
     <many-to-one name="permanentBidCardSet" title="N° jeu plaquettes permanent"
       ref="com.axelor.apps.openauction.db.BiddingPaddleSet"/>
-    <many-to-one name="defaultVATBusPostingGroup"
-      title="Groupe compta marché TVA par défaut" ref="com.axelor.apps.account.db.Tax"/>
+    <many-to-one name="defaultFiscalPosition" title="Position fiscale par défaut"
+      ref="com.axelor.apps.account.db.FiscalPosition"/>
     <many-to-one name="defaultBuyerCommissionItem"
       title="Code honoraire acheteur par défaut" ref="com.axelor.apps.base.db.Product"/>
     <many-to-one name="defaultSellerCommissionItem"

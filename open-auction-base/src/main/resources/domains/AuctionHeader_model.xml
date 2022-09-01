@@ -77,7 +77,7 @@
       selection="openauction.sortingMethod.select"/>
     <boolean name="pricesIncludingVAT" title="Vente TTC"/>
     <many-to-one name="auctionTemplate" title="Code modèle vente"
-      ref="com.axelor.apps.openauction.db.AuctionHeader"/>
+      ref="com.axelor.apps.openauction.db.AuctionTemplate"/>
     <boolean name="template" title="Modèle de vente"/>
     <string name="noSeries" title="Souches de n°"/>
     <string name="customerTemplate" title="Modèle client"/>
