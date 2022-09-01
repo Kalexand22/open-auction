@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<domain-models xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://axelor.com/xml/ns/domain-models">
+  <module name="openauction" package="com.axelor.apps.openauction.db"/>
+  <entity name="ReasonCode">
+    <string name="code" title="Code"/>
+    <string name="description" title="Désignation"/>
+    <boolean name="active" title="Actif"/>
+  </entity>
+</domain-models>

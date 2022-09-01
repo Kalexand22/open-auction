@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<domain-models xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://axelor.com/xml/ns/domain-models">
+  <module name="openauction" package="com.axelor.apps.openauction.db"/>
+  <entity name="Shelving">
+    <string name="no" title="N°"/>
+    <string name="description" title="Désignation"/>
+  </entity>
+</domain-models>
