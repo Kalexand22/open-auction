@@ -17,7 +17,7 @@
     <field name="netReservePrice"/>
     <field name="lotCategorie1Code1"/>
     <field name="lotCategorie2Code1"/>
-    <field name="lotCategorie3Code1"/>    
+    <field name="lotCategorie3Code1"/>
   </grid>
 
   <form name="lot-card-form" title="Lot" model="com.axelor.apps.openauction.db.Lot"

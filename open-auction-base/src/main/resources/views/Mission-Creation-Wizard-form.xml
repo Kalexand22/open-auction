@@ -2,7 +2,8 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
-  <form name="mission-creation-wizard-form" model="com.axelor.openauction.db.MissionHeader">
+  <form name="mission-creation-wizard-form" title="Création de mission"
+    model="com.axelor.openauction.db.MissionHeader">
 
     <panel name="stepStatusPanel" colSpan="12">
       <field name="stepStatusSelect" showTitle="false" readonly="true" colSpan="12"
