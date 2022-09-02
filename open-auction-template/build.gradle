@@ -1,0 +1,15 @@
+apply plugin: "com.axelor.app-module"
+
+
+axelor {
+	title "Open Auction Template"
+	description "Open Auction - gestion des modèles"
+} 
+
+dependencies {
+	api project(":modules:axelor-base")
+	api project(":modules:axelor-account")	
+    api project(":modules:open-auction-referentiel")
+    api project(":modules:open-auction-pricing")
+    api project(":modules:axelor-stock")
+}

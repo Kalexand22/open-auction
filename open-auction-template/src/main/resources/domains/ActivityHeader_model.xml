@@ -5,15 +5,19 @@
   <module name="openauction" package="com.axelor.apps.openauction.db"/>
   <entity name="ActivityHeader">
     <string name="code" title="Code"/>
-    <string name="activityType" title="Type activité"  selection="openauction.activityType.select"/>
+    <string name="activityType" title="Type activité"
+      selection="openauction.activityType.select"/>
     <string name="description" title="Désignation"/>
     <string name="status" title="Statut" selection="openauction.status.select"/>
     <date name="startingDate" title="Date début"/>
     <date name="endingDate" title="Date fin"/>
     <boolean name="invLotPositionRequested" title="Prise en compte stock lot"/>
-    <string name="applicableOn" title="Applicable sur"  selection="openauction.applicableOn.select"/>
+    <string name="applicableOn" title="Applicable sur"
+      selection="openauction.applicableOn.select"/>
     <string name="noSeries" title="Souches de n°"/>
-    <many-to-one name="responsibilityCenter" title="Centre de gestion" ref="com.axelor.apps.base.db.TradingName"/>
-    <one-to-many ref="com.axelor.apps.openauction.db.ActivityLine"  name="activityLineList" mappedBy="activityCode"/>
+    <many-to-one name="responsibilityCenter" title="Centre de gestion"
+      ref="com.axelor.apps.base.db.TradingName"/>
+    <one-to-many ref="com.axelor.apps.openauction.db.ActivityLine"
+      name="activityLineList" mappedBy="activityCode"/>
   </entity>
 </domain-models>

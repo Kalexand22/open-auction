@@ -13,4 +13,6 @@ dependencies {
 	api project(":modules:axelor-purchase")
 	api project(":modules:axelor-sale")
 	api project(":modules:open-auction-referentiel")
+	api project(":modules:open-auction-template")
+	api project(":modules:open-auction-pricing")
 }
