@@ -174,8 +174,6 @@
       mappedBy="missionNo"/>
     <one-to-many name="lotList" ref="com.axelor.apps.openauction.db.Lot"
       mappedBy="currentMissionNo"/>
-    <one-to-many name="taskList" ref="com.axelor.team.db.TeamTask"
-      mappedBy="missionHeader"/>
     <many-to-many name="contactList" ref="com.axelor.apps.base.db.Partner"/>
   </entity>
 </domain-models>

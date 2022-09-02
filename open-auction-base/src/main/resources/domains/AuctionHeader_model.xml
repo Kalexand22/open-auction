@@ -128,8 +128,7 @@
     <one-to-many name="auctionBiddingPaddleList"
       ref="com.axelor.apps.openauction.db.AuctionBiddingPaddle" title="Liste des inscrits"
       mappedBy="auctionNo"/>
-    <one-to-many name="taskList" ref="com.axelor.team.db.TeamTask"
-      mappedBy="auctionHeader"/>
+
     <decimal name="genBuyerCommission" title="Hono. acheteurs pour toutes les ventes"/>
     <decimal name="genBuyerCommissionModel" title="Hono. acheteurs pour ce modele de vente"/>
     <decimal name="genBuyerCommissionAuction" title="Hono. acheteurs pour cette vente"/>
@@ -152,7 +151,6 @@
       <field name="siteAuctionList"/>
       <field name="contributorRespCenter"/>
       <field name="coorganisatorRespCenter"/>
-      <field name="taskList"/>
       <message if="true" on="UPDATE">Vente mise à jour</message>
     </track>
   </entity>
