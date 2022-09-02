@@ -15,32 +15,7 @@
   <menuitem name="menu-equipment" title="Matériels" order="9"/>
   <menuitem name="menu-vehicle" title="Véhicules" order="10"/>
   <menuitem name="menu-logistique" title="Logistique" order="11"/>
-  <menuitem name="menu-modele" title="Modèles" order="13"/>
   <menuitem name="menu-administration" title="Administration" order="14"/>
-
-  <menuitem name="menu-model-mission" parent="menu-modele" title="Modèles de mission"
-    action="model.mission.all"/>
-  <action-view name="model.mission.all" title="Modèles de mission"
-    model="com.axelor.apps.openauction.db.MissionTemplate">
-    <view type="grid" name="mission-template-grid"/>
-    <view type="form" name="mission-template-form"/>
-  </action-view>
-
-  <menuitem name="menu-model-contact" parent="menu-modele" title="Modèles de contact"
-    action="model.contact.all"/>
-  <action-view name="model.contact.all" title="Modèles de contact"
-    model="com.axelor.apps.openauction.db.ContactTemplate">
-    <view type="grid" name="contact-template-grid"/>
-    <view type="form" name="contact-template-form"/>
-  </action-view>
-
-  <menuitem name="menu-template-lot" parent="menu-mission" title="Modèles de lot"
-    action="model.lot.all"/>
-  <action-view name="model.lot.all" title="Liste des modèles de lot"
-    model="com.axelor.apps.openauction.db.LotTemplate">
-    <view type="grid" name="lot-template-list-grid"/>
-    <view type="form" name="lot-template-card-form"/>
-  </action-view>
 
   <menuitem name="menu-equipment-all" parent="menu-equipment"
     title="Liste des lots matériels" action="equipment.all"/>
@@ -69,12 +44,6 @@
     <domain>self.missionLine.auctionMission = TRUE</domain>
   </action-view>
 
-
-  <menuitem name="menu-vente-all" parent="menu-vente" title="Liste des ventes"
-    action="vente.all"/>
-  <menuitem name="menu-template-vente-all" parent="menu-vente"
-    title="Liste des modèles de ventes" action="vente.template.all"/>
-
   <menuitem name="menu-mission-vente-all" parent="menu-mission"
     title="Liste des missions de vente" action="mission.vente.all"/>
   <menuitem name="menu-mission-remise-all" parent="menu-mission"
@@ -82,15 +51,11 @@
   <menuitem name="menu-mission-all" parent="menu-mission" title="Liste des missions"
     action="mission.all"/>
 
-
-
   <action-view name="nature.all" title="Liste des natures de lot"
     model="com.axelor.apps.openauction.db.LotNature">
     <view type="grid" name="lot-nature-grid"/>
     <view type="form" name="lot-nature-card-form"/>
   </action-view>
-
-
 
   <action-view name="vente.all" title="Ventes"
     model="com.axelor.apps.openauction.db.AuctionHeader">
@@ -99,16 +64,6 @@
     <view type="calendar" name="auction-calendar-grid"/>
     <domain>self.template = FALSE</domain>
   </action-view>
-
-  <action-view name="vente.template.all" title="Modèles de ventes"
-    model="com.axelor.apps.openauction.db.AuctionHeader">
-    <view type="grid" name="auction-list-grid"/>
-    <view type="form" name="auction-template-form"/>
-    <view type="calendar" name="auction-calendar-grid"/>
-    <domain>self.template = TRUE</domain>
-  </action-view>
-
-
 
   <action-view name="mission.remise.all" title="Liste des missions de remise de biens"
     model="com.axelor.apps.openauction.db.MissionHeader">

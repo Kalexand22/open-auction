@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+  <menuitem name="menu-modele" title="Modèles" order="13"/>
+
+
+  <menuitem name="menu-model-mission" parent="menu-modele" title="Modèles de mission"
+    action="model.mission.all"/>
+  <action-view name="model.mission.all" title="Modèles de mission"
+    model="com.axelor.apps.openauction.db.MissionTemplate">
+    <view type="grid" name="mission-template-grid"/>
+    <view type="form" name="mission-template-form"/>
+  </action-view>
+
+  <menuitem name="menu-model-contact" parent="menu-modele" title="Modèles de contact"
+    action="model.contact.all"/>
+  <action-view name="model.contact.all" title="Modèles de contact"
+    model="com.axelor.apps.openauction.db.ContactTemplate">
+    <view type="grid" name="contact-template-grid"/>
+    <view type="form" name="contact-template-form"/>
+  </action-view>
+
+  <menuitem name="menu-template-lot" parent="menu-mission" title="Modèles de lot"
+    action="model.lot.all"/>
+  <action-view name="model.lot.all" title="Liste des modèles de lot"
+    model="com.axelor.apps.openauction.db.LotTemplate">
+    <view type="grid" name="lot-template-list-grid"/>
+    <view type="form" name="lot-template-card-form"/>
+  </action-view>
+
+
+  <menuitem name="menu-vente-all" parent="menu-vente" title="Liste des ventes"
+    action="vente.all"/>
+  <menuitem name="menu-template-vente-all" parent="menu-vente"
+    title="Liste des modèles de ventes" action="vente.template.all"/>
+  <action-view name="vente.template.all" title="Modèles de ventes"
+    model="com.axelor.apps.openauction.db.AuctionHeader">
+    <view type="grid" name="auction-list-grid"/>
+    <view type="form" name="auction-template-form"/>
+    <view type="calendar" name="auction-calendar-grid"/>
+    <domain>self.template = TRUE</domain>
+  </action-view>
+</object-views>
