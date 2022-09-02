@@ -57,6 +57,8 @@
     <view type="form" name="lot-nature-card-form"/>
   </action-view>
 
+  <menuitem name="menu-vente-all" parent="menu-vente" title="Liste des ventes"
+    action="vente.all"/>
   <action-view name="vente.all" title="Ventes"
     model="com.axelor.apps.openauction.db.AuctionHeader">
     <view type="grid" name="auction-list-grid"/>
