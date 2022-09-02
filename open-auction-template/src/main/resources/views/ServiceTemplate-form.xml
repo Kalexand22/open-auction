@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+  <grid name="service-template-list-grid" title="Modèles de prestation" model="com.axelor.apps.openauction.db.ServiceTemplate">
+    <field name="serviceType" />
+    <field name="code" />
+    <field name="description" />
+    <field name="currencyCode" />
+    <field name="createDate" />
+    <field name="createdBy" />
+    <field name="lastModified" />
+    <field name="modifiedBy" />
+  </grid>
+
+  <form name="service-template-card-form" title="Modèle de prestation" model="com.axelor.apps.openauction.db.ServiceTemplate">
+    <panel name="MainPanel" />
+    <panel-tabs name="panelTab1">
+      <panel title="Géneral" name="general">
+        <field name="code" />
+        <field name="description" />
+        <field name="currencyCode" />
+        <field name="serviceType" />
+      </panel>
+    </panel-tabs>
+  </form>
+</object-views>
