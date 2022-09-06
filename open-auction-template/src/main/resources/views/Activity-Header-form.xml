@@ -15,7 +15,7 @@
     <field name="invLotPositionRequested"/>
   </grid>
 
-  <form name="activity-header-form" title="Activité"
+  <form name="activity-header-form" title="Activité" width="large"
     model="com.axelor.apps.openauction.db.ActivityHeader">
     <panel-tabs name="panelTab1">
       <panel title="Général" name="general">
@@ -50,7 +50,7 @@
         <field name="modifiedBy"/>
       </panel>
     </panel-tabs>
-    <panel-related field="activityLineList">
+    <panel-related field="activityLineList" editable="true" title="Lignes d'activité">
       <field name="serviceTemplateCode"></field>
       <field name="serviceTemplateCode.description"></field>
       <field name="lotTemplateFilter"></field>

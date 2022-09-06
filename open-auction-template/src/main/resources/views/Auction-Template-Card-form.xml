@@ -16,7 +16,7 @@
     <field name="activityCodeToLines"/>
   </grid>
 
-  <form name="auction-template-form" title="Modèles de vente"
+  <form name="auction-template-form" title="Modèles de vente" width="large"
     model="com.axelor.apps.openauction.db.AuctionTemplate">
     <panel name="MainPanel"/>
     <panel-tabs name="panelTab1">
