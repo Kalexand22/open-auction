@@ -10,7 +10,7 @@
     <field name="lotNatureCode"/>
   </grid>
 
-  <form name="lot-template-card-form" title="Modèle de lot"
+  <form name="lot-template-card-form" title="Modèle de lot" width="large"
     model="com.axelor.apps.openauction.db.LotTemplate">
     <panel name="MainPanel"/>
     <panel-tabs name="panelTab1">

@@ -11,7 +11,7 @@
     <field name="fiscalPosition"/>
   </grid>
 
-  <form name="contact-template-form" title="Modèles de mission"
+  <form name="contact-template-form" title="Modèles de mission" width="large"
     model="com.axelor.apps.openauction.db.ContactTemplate">
     <panel name="MainPanel"/>
     <panel-tabs name="panelTab1">
