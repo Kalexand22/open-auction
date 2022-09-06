@@ -8,7 +8,7 @@
     <field name="code"/>
     <field name="description"/>
     <field name="vIP"/>
-    <field name="fiscalPosition"/>    
+    <field name="fiscalPosition"/>
   </grid>
 
   <form name="contact-template-form" title="Modèles de mission"
@@ -33,7 +33,7 @@
             <field name="paymentTermsCode"/>
             <field name="fiscalPosition"/>
             <field name="contactMissionPriceGroup"/>
-            <field name="contactAuctionPriceGroup"/>    
+            <field name="contactAuctionPriceGroup"/>
             <field name="addedValueType"/>
             <field name="freeReasonCode"/>
             <field name="preemptingAuthorized"/>

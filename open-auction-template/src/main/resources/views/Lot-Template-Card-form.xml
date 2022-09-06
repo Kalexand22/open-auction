@@ -20,9 +20,9 @@
             <field name="code"/>
             <field name="description"/>
             <field name="sectorCode"/>
-            <field name="lotNatureCode"/>            
+            <field name="lotNatureCode"/>
             <field name="catalogTemplateExist"/>
-            <field name="templateDescriptionExist"/>            
+            <field name="templateDescriptionExist"/>
           </panel>
         </panel>
         <panel colSpan="3" itemSpan="12">
@@ -55,7 +55,7 @@
             <field name="defaultLotSize"/>
             <field name="defaultLotQuantity"/>
           </panel>
-        </panel>        
+        </panel>
       </panel>
       <panel title="Détails" name="information">
         <panel colSpan="3" itemSpan="12">
@@ -72,12 +72,12 @@
           <panel itemSpan="12">
             <field name="averageCatalogPages"/>
             <field name="internetBroadcasting"/>
-            <field name="eUTariffNumber"/>   
+            <field name="eUTariffNumber"/>
             <field name="specialEquipmentCode"/>
             <field name="propertyRegister"/>
             <field name="nobleMetalRegister"/>
             <field name="weaponRegister"/>
-            <field name="specificityCode"/>     
+            <field name="specificityCode"/>
           </panel>
         </panel>
       </panel>

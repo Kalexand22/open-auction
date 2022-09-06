@@ -81,5 +81,10 @@
     <domain>self.auctionMission = TRUE</domain>
   </action-view>
 
+  <action-view name="mission.all" title="Liste des missions"
+    model="com.axelor.apps.openauction.db.MissionHeader">
+    <view type="grid" name="mission-list-grid"/>
+    <view type="form" name="auction-mission-card-form"/>
+  </action-view>
 
 </object-views>
