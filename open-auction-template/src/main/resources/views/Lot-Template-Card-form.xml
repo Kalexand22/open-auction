@@ -15,48 +15,71 @@
     <panel name="MainPanel"/>
     <panel-tabs name="panelTab1">
       <panel title="Général" name="general">
-        <field name="code"/>
-        <field name="description"/>
-        <field name="sectorCode"/>
-        <field name="lotNatureCode"/>
-        <field name="defaultExpert"/>
-        <field name="catalogTemplateExist"/>
-        <field name="templateDescriptionExist"/>
-        <field name="locationCode"/>
-        <field name="defaultBinCode"/>
-        <field title="Unité de Poids" name="weightUnit"/>
-        <field title="Unité de volume" name="cubageUnit"/>
-        <field name="unitofMeasure"/>
+        <panel colSpan="3" itemSpan="12">
+          <panel itemSpan="12">
+            <field name="code"/>
+            <field name="description"/>
+            <field name="sectorCode"/>
+            <field name="lotNatureCode"/>            
+            <field name="catalogTemplateExist"/>
+            <field name="templateDescriptionExist"/>            
+          </panel>
+        </panel>
+        <panel colSpan="3" itemSpan="12">
+          <panel itemSpan="12">
+            <field name="defaultExpert"/>
+            <field name="locationCode"/>
+            <field name="defaultBinCode"/>
+            <field title="Unité de Poids" name="weightUnit"/>
+            <field title="Unité de volume" name="cubageUnit"/>
+            <field name="unitofMeasure"/>
+          </panel>
+        </panel>
       </panel>
       <panel title="Ventes" name="ventes">
-        <field name="valueSearch"/>
-        <field name="searchMethod"/>
-        <field name="defaultLotSize"/>
-        <field name="defaultLotQuantity"/>
-        <field name="valuationAtBest"/>
-        <field name="bidPriceIncrement"/>
-        <field name="maxSalePeriod"/>
-        <field name="auctionProdPostingGroup"/>
-        <field name="vATProdPostingGroup"/>
-        <field name="lotMissionPriceGroup"/>
-        <field name="lotAuctionPriceGroup"/>
-        <field name="addedValueType"/>
+        <panel colSpan="3" itemSpan="12">
+          <panel itemSpan="12">
+            <field name="productFamilyAdj"/>
+            <field name="lotMissionPriceGroup"/>
+            <field name="lotAuctionPriceGroup"/>
+            <field name="addedValueType"/>
+            <field name="maxSalePeriod"/>
+            <field name="bidPriceIncrement"/>
+          </panel>
+        </panel>
+        <panel colSpan="3" itemSpan="12">
+          <panel itemSpan="12">
+            <field name="valueSearch"/>
+            <field name="searchMethod"/>
+            <field name="valuationAtBest"/>
+            <field name="defaultLotSize"/>
+            <field name="defaultLotQuantity"/>
+          </panel>
+        </panel>        
       </panel>
-      <panel title="Information" name="information">
-        <field name="ungroupingAuthorization"/>
-        <field name="groupingAuthorization"/>
-        <field name="specialEquipmentCode"/>
-        <field name="propertyRegister"/>
-        <field name="nobleMetalRegister"/>
-        <field name="weaponRegister"/>
-        <field name="specificityCode"/>
-        <field name="lotCategorie4Code"/>
-        <field name="eUTariffNumber"/>
-        <field name="lotCategorie3Code"/>
-        <field name="lotCategorie2Code"/>
-        <field name="internetBroadcasting"/>
-        <field name="lotCategorie1Code"/>
-        <field name="averageCatalogPages"/>
+      <panel title="Détails" name="information">
+        <panel colSpan="3" itemSpan="12">
+          <panel itemSpan="12">
+            <field name="lotCategorie1Code"/>
+            <field name="lotCategorie2Code"/>
+            <field name="lotCategorie3Code"/>
+            <field name="lotCategorie4Code"/>
+            <field name="ungroupingAuthorization"/>
+            <field name="groupingAuthorization"/>
+          </panel>
+        </panel>
+        <panel colSpan="3" itemSpan="12">
+          <panel itemSpan="12">
+            <field name="averageCatalogPages"/>
+            <field name="internetBroadcasting"/>
+            <field name="eUTariffNumber"/>   
+            <field name="specialEquipmentCode"/>
+            <field name="propertyRegister"/>
+            <field name="nobleMetalRegister"/>
+            <field name="weaponRegister"/>
+            <field name="specificityCode"/>     
+          </panel>
+        </panel>
       </panel>
     </panel-tabs>
   </form>
