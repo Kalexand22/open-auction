@@ -11,7 +11,7 @@
     model="com.axelor.apps.base.db.Wizard" width="large">
     <panel name="mainPanel">
       <field name="contactTemplate" title="Modèle de contact" type="many-to-one"
-        target="com.axelor.apps.account.db.ContactTemplate" />
+        target="com.axelor.apps.account.db.ContactTemplate"/>
     </panel>
     <panel sidebar="true" name="actionsPanel" title="Actions">
       <button name="createContactBtn" title="Créer le contact"
@@ -20,6 +20,7 @@
   </form>
 
   <action-method name="action-contact-template-wizard-method-create">
-    <call method="createContactFromtemplate" class="com.axelor.apps.account.web.MoveTemplateController"/>
+    <call method="createContactFromtemplate"
+      class="com.axelor.apps.account.web.MoveTemplateController"/>
   </action-method>
 </object-views>

@@ -57,5 +57,5 @@
     <view-param name="show-confirm" value="false"/>
     <view-param name="show-toolbar" value="false"/>
   </action-view>
-  
+
 </object-views>

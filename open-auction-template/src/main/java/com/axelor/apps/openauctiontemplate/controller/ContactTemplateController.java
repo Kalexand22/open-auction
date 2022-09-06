@@ -1,25 +1,26 @@
 package com.axelor.apps.openauctiontemplate.controller;
+
+import com.axelor.apps.openauction.db.ContactTemplate;
+import com.axelor.apps.openauction.db.repo.ContactTemplateRepository;
+import com.axelor.apps.openauctiontemplate.service.ContactTemplateService;
 import com.axelor.inject.Beans;
 import com.axelor.rpc.ActionRequest;
 import com.axelor.rpc.ActionResponse;
-import java.util.LinkedHashMap;
-import com.axelor.apps.openauction.service.ContactTemplateService;
+import com.axelor.rpc.Context;
+import java.util.HashMap;
 
 public class ContactTemplateController {
-    public void createContactFromTemplate(ActionRequest request, ActionResponse response) {
+  public void createContactFromTemplate(ActionRequest request, ActionResponse response) {
 
+    Context context = request.getContext();
 
-        Context context = request.getContext();
+    HashMap<String, Object> contactTemplateMap =
+        (HashMap<String, Object>) context.get("contactTemplate");
+    ContactTemplate contactTemplate =
+        Beans.get(ContactTemplateRepository.class)
+            .find(Long.parseLong(contactTemplateMap.get("id").toString()));
 
-        HashMap<String, Object> moveTemplateTypeMap =
-            (HashMap<String, Object>) context.get("moveTemplateType");
-        MoveTemplateType moveTemplateType =
-            Beans.get(MoveTemplateTypeRepository.class)
-                .find(Long.parseLong(moveTemplateTypeMap.get("id").toString()));
-
-        LotGrouping lotGroup = request.getContext().asType(LotGrouping.class);
-        AuctionHeaderService auctionHeaderService = Beans.get(AuctionHeaderService.class);
-        auctionHeaderService.regroupe(lotGroup);
-
-    }
+    ContactTemplateService contactTemplateService = Beans.get(ContactTemplateService.class);
+    contactTemplateService.createContactFromTemplate(contactTemplate);
+  }
 }
