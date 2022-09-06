@@ -36,4 +36,12 @@
     <view type="grid" name="auction-template-grid"/>
     <view type="form" name="auction-template-form"/>
   </action-view>
+
+  <menuitem name="menu-template-activity-all" parent="menu-modele"
+    title="Liste des activités" action="activity.all"/>
+  <action-view name="activity.all" title="Liste des activités"
+    model="com.axelor.apps.openauction.db.ActivityHeader">
+    <view type="grid" name="activity-header-grid"/>
+    <view type="form" name="activity-header-form"/>
+  </action-view>
 </object-views>

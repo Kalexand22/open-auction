@@ -52,7 +52,6 @@
             <field name="evaluetedCommissionDemand"/>
           </panel>
         </panel>
-
         <panel colSpan="3" itemSpan="12">
           <panel itemSpan="12">
             <field name="auctionMission"/>
@@ -62,7 +61,6 @@
             <field name="inventoryMission"/>
           </panel>
         </panel>
-
         <panel colSpan="3" itemSpan="12">
           <panel itemSpan="12">
             <field name="processType"/>
@@ -74,14 +72,6 @@
             <field name="desactivated"/>
           </panel>
         </panel>
-
-
-
-
-
-
-
-
       </panel>
       <panel title="Comptabilisation" name="comptabilisation">
         <field name="sellerInvStatementUnit"/>
@@ -108,11 +98,6 @@
         <field name="createdBy"/>
         <field name="createDate"/>
       </panel>
-    </panel-tabs>
-    <panel-tabs name="panelTab2">
-      <panel title="Prestations" name="prestations"/>
-      <panel title="Actions" name="actions"/>
-      <panel title="Interactions" name="interactions"/>
     </panel-tabs>
 
   </form>

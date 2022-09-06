@@ -24,6 +24,11 @@
         <field name="currencyCode"/>
         <field name="serviceType"/>
       </panel>
+      <panel-related field="templateLineList">
+        <field name="type"></field>
+        <field name="description"></field>
+        <field name="product"></field>
+      </panel-related>
     </panel-tabs>
   </form>
 </object-views>
