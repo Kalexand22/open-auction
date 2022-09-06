@@ -4,8 +4,8 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
   <module name="openauction" package="com.axelor.apps.openauction.db"/>
   <entity name="ContactTemplate">
-    <string name="code" title="Code"/>
-    <string name="description" title="Désignation"/>
+    <string name="code" title="Code" />
+    <string name="description" title="Désignation" namecolumn="true"/>
     <many-to-one name="currencyCode" title="Code devise"
       ref="com.axelor.apps.base.db.Currency"/>
     <string name="countryCode" title="Code pays"/>

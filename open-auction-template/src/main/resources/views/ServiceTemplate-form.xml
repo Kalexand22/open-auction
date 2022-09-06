@@ -4,14 +4,10 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
   <grid name="service-template-list-grid" title="Modèles de prestation"
     model="com.axelor.apps.openauction.db.ServiceTemplate">
-    <field name="serviceType"/>
     <field name="code"/>
     <field name="description"/>
+    <field name="serviceType"/>
     <field name="currencyCode"/>
-    <field name="createDate"/>
-    <field name="createdBy"/>
-    <field name="lastModified"/>
-    <field name="modifiedBy"/>
   </grid>
 
   <form name="service-template-card-form" title="Modèle de prestation" width="large"
@@ -24,7 +20,8 @@
         <field name="currencyCode"/>
         <field name="serviceType"/>
       </panel>
-      <panel-related field="templateLineList" editable="true" title="Lignes de prestation">
+      <panel-related field="templateLineList" editable="true"
+        title="Lignes de prestation">
         <field name="type"></field>
         <field name="description"></field>
         <field name="product"></field>
