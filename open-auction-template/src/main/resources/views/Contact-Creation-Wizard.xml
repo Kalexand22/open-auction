@@ -3,15 +3,11 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
 
-
-
-
-
   <form name="contact-template-wizard-form" title="Créer un contact depuis un modèle"
     model="com.axelor.apps.base.db.Wizard" width="large">
     <panel name="mainPanel">
       <field name="contactTemplate" title="Modèle de contact" type="many-to-one"
-        target="com.axelor.apps.account.db.ContactTemplate"/>
+        target="com.axelor.apps.openauction.db.ContactTemplate"/>
     </panel>
     <panel sidebar="true" name="actionsPanel" title="Actions">
       <button name="createContactBtn" title="Créer le contact"
@@ -20,7 +16,7 @@
   </form>
 
   <action-method name="action-contact-template-wizard-method-create">
-    <call method="createContactFromtemplate"
-      class="com.axelor.apps.account.web.MoveTemplateController"/>
+    <call class="com.axelor.apps.openauctiontemplate.controller.ContactTemplateController"
+      method="createContactFromTemplate"/>
   </action-method>
 </object-views>
