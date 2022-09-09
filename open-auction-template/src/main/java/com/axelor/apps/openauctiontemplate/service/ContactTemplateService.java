@@ -5,5 +5,5 @@ import com.axelor.apps.openauction.db.ContactTemplate;
 
 public interface ContactTemplateService {
 
-  public Partner createContactFromTemplate(ContactTemplate contactTemplate);
+  public Partner createContactFromTemplate(ContactTemplate contactTemplate, Partner tmpPartner);
 }

@@ -50,7 +50,7 @@
     title="Créer un contact depuis un modèle" action="contact.template.wizard"/>
   <action-view name="contact.template.wizard" title="Créer un contact depuis un modèle"
     model="com.axelor.apps.base.db.Wizard">
-    <view type="form" name="contact-template-wizard-form"/>
+    <view type="form" name="contact-template-wizard-form-"/>
     <view-param name="popup" value="reload"/>
     <view-param name="forceEdit" value="true"/>
     <view-param name="width" value="800"/>
