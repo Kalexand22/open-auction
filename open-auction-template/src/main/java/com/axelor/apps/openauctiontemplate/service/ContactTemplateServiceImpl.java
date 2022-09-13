@@ -8,12 +8,10 @@ import com.axelor.apps.openauction.db.ContactTemplate;
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
 import java.lang.invoke.MethodHandles;
+import java.util.HashSet;
 import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 
 public class ContactTemplateServiceImpl implements ContactTemplateService {
   private final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
@@ -38,7 +36,7 @@ public class ContactTemplateServiceImpl implements ContactTemplateService {
     tmpPartner = initPartnerFromTemplate(contactTemplate, tmpPartner);
     partnerRepository.save(tmpPartner);
     log.debug("Creation d'un contact depuis un modèle OK");
-    return null;
+    return tmpPartner;
   }
 
   private Partner initPartnerFromTemplate(ContactTemplate contactTemplate, Partner tmpPartner) {

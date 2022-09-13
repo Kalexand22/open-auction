@@ -2,8 +2,11 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
-  <grid name="mission-list-grid" title="Liste des missions"
+  <grid name="mission-list-grid" title="Liste des missions" canNew="false"
     model="com.axelor.apps.openauction.db.MissionHeader">
+    <toolbar>
+      <button name="newMission" title="Créer une mission" onClick="mission.template.wizard"/>
+    </toolbar>
     <field name="no"/>
     <field name="description"/>
     <field name="masterContactNo"/>
@@ -11,14 +14,14 @@
     <field name="responsibilityCenter"/>
     <field name="masterContactNo.mainAddress"/>
     <field name="masterContactNo.mobilePhone"/>
-
     <field name="masterContactNo.emailAddress"/>
     <field name="masterContactNo.fixedPhone"/>
 
   </grid>
   <form name="mission-card-form" title="Mission"
-    model="com.axelor.apps.openauction.db.MissionHeader" width="large">
+    model="com.axelor.apps.openauction.db.MissionHeader" width="large" canNew="false">
     <toolbar>
+      <button name="newMission" title="Créer une mission" onClick="mission.template.wizard"/>
       <button name="saisie" title="Saisie des lots" onClick="save,mission.journal.input.all"/>
       <button name="valider" title="Créer une mission de vente"
         onClick="save,mission.create.auction.mission"/>
@@ -181,6 +184,17 @@
     <domain>self.currentMissionNo = :_missionRecord</domain>
     <context name="_missionRecord" expr="eval: __this__"/>
     <context name="_missionRecordId" expr="eval: __this__.id"/>
+  </action-view>
+
+  <action-view name="mission.template.wizard"
+    title="Créer une mission à partir d'un modèle" model="com.axelor.apps.base.db.Wizard">
+    <view name="mission-creation-wizard-form" type="form"/>
+    <view-param name="show-toolbar" value="false"/>
+    <view-param name="width" value="800"/>
+    <view-param name="popup" value="true"/>
+    <view-param name="show-confirm" value="false"/>
+    <view-param name="popup-save" value="false"/>
+    <view-param name="popup" value="reload"/>
   </action-view>
 
   <action-method name="mission.create.auction.mission">

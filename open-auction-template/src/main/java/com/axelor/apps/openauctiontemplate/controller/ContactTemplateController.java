@@ -8,6 +8,7 @@ import com.axelor.apps.openauction.db.ContactTemplate;
 import com.axelor.apps.openauction.db.repo.ContactTemplateRepository;
 import com.axelor.apps.openauctiontemplate.service.ContactTemplateService;
 import com.axelor.inject.Beans;
+import com.axelor.meta.schema.actions.ActionView;
 import com.axelor.rpc.ActionRequest;
 import com.axelor.rpc.ActionResponse;
 import com.axelor.rpc.Context;
@@ -45,6 +46,19 @@ public class ContactTemplateController {
     tmpPartner.setFirstName((String) context.get("firstName"));
 
     ContactTemplateService contactTemplateService = Beans.get(ContactTemplateService.class);
-    contactTemplateService.createContactFromTemplate(contactTemplate, tmpPartner);
+    tmpPartner = contactTemplateService.createContactFromTemplate(contactTemplate, tmpPartner);
+
+    if (tmpPartner != null) {
+      // Open the generated invoice in a new tab
+      response.setView(
+          ActionView.define("Contact")
+              .model(Partner.class.getName())
+              .add("grid", "partner-grid")
+              .add("form", "partner-form")
+              .param("forceEdit", "true")
+              .context("_showRecord", String.valueOf(tmpPartner.getId()))
+              .map());
+      response.setCanClose(true);
+    }
   }
 }
