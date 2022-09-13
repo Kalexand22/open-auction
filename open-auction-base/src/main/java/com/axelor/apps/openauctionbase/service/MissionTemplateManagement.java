@@ -1,6 +1,7 @@
 package com.axelor.apps.openauctionbase.service;
 
 import com.axelor.apps.base.db.Partner;
+import com.axelor.apps.openauction.db.ActivityHeader;
 import com.axelor.apps.openauction.db.MissionHeader;
 import com.axelor.apps.openauction.db.MissionTemplate;
 
@@ -19,5 +20,5 @@ public interface MissionTemplateManagement {
 
   public void SetSkipActivityCreation(Boolean pSkipActivity);
 
-  public void CreateActivity(MissionHeader pMissionHeader, String pActivityCodeToHeader);
+  public void CreateActivity(MissionHeader pMissionHeader, ActivityHeader pActivityCodeToHeader);
 }

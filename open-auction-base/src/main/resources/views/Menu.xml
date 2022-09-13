@@ -69,22 +69,24 @@
 
   <action-view name="mission.remise.all" title="Liste des missions de remise de biens"
     model="com.axelor.apps.openauction.db.MissionHeader">
-    <view type="grid" name="mission-list-grid"/>
-    <view type="form" name="remittance-mission-card-form"/>
+    <view type="grid" name="mission-header-grid"/>
+    <view type="form" name="mission-header-form"/>
     <domain>self.auctionMission = FALSE</domain>
   </action-view>
 
   <action-view name="mission.vente.all" title="Liste des missions de vente"
     model="com.axelor.apps.openauction.db.MissionHeader">
-    <view type="grid" name="mission-list-grid"/>
-    <view type="form" name="auction-mission-card-form"/>
+    <view type="grid" name="mission-header-grid"/>
+    <view type="form" name="mission-header-form"/>
     <domain>self.auctionMission = TRUE</domain>
   </action-view>
 
   <action-view name="mission.all" title="Liste des missions"
     model="com.axelor.apps.openauction.db.MissionHeader">
-    <view type="grid" name="mission-list-grid"/>
-    <view type="form" name="auction-mission-card-form"/>
+    <view type="grid" name="mission-header-grid"/>
+    <view type="form" name="mission-header-form"/>
   </action-view>
+
+
 
 </object-views>

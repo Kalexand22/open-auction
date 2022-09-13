@@ -2,7 +2,7 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
-  <grid name="mission-list-grid" title="Liste des missions" canNew="false"
+  <grid name="mission-header-grid" title="Liste des missions" canNew="false"
     model="com.axelor.apps.openauction.db.MissionHeader">
     <toolbar>
       <button name="newMission" title="Créer une mission" onClick="mission.template.wizard"/>
@@ -18,7 +18,7 @@
     <field name="masterContactNo.fixedPhone"/>
 
   </grid>
-  <form name="mission-card-form" title="Mission"
+  <form name="mission-header-form" title="Mission"
     model="com.axelor.apps.openauction.db.MissionHeader" width="large" canNew="false">
     <toolbar>
       <button name="newMission" title="Créer une mission" onClick="mission.template.wizard"/>

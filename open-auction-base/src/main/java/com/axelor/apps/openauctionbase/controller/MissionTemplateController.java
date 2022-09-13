@@ -25,6 +25,7 @@ public class MissionTemplateController {
             .find(Long.parseLong(missionTemplateMap.get("id").toString()));
 
     MissionHeader pMissionHeader = new MissionHeader();
+    pMissionHeader.setMissionTemplateCode(missionTemplate);
     pMissionHeader.setDescription((String) context.get("missionTitle"));
 
     HashMap<String, Object> activityCodeToHeaderMap =
@@ -59,7 +60,7 @@ public class MissionTemplateController {
     if (pMissionHeader != null) {
       // Open the generated mission in a new tab
       response.setView(
-          ActionView.define("Contact")
+          ActionView.define("Mission")
               .model(MissionHeader.class.getName())
               .add("grid", "mission-header-grid")
               .add("form", "mission-header-form")
