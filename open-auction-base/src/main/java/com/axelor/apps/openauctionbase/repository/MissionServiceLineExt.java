@@ -34,20 +34,20 @@ public class MissionServiceLineExt extends MissionServiceLine {
 
   public void setMissionNo(MissionHeader missionNo) {
     this.setMissionTemplateCode(missionNo.getMissionTemplateCode());
-    //TODO MissionHeader.TESTFIELD("VAT Business Posting Group");
-    if(this.getLotNo() == null){
+    // TODO MissionHeader.TESTFIELD("VAT Business Posting Group");
+    if (this.getLotNo() == null) {
       this.setSellerFiscalPosition(missionNo.getFiscalPosition());
     }
-    //TODO GetMissVATBus;
-    //IF "No." <> '' THEN
-        //TODO  VALIDATE("Contact Imputation Type");
-    if(missionNo.getResponsibilityCenter() != null){
+    // TODO GetMissVATBus;
+    // IF "No." <> '' THEN
+    // TODO  VALIDATE("Contact Imputation Type");
+    if (missionNo.getResponsibilityCenter() != null) {
       this.setResponsibilityCenter(missionNo.getResponsibilityCenter());
     }
     super.setMissionNo(missionNo);
   }
 
-  public void setLotNo(Lot lotNo) {    
+  public void setLotNo(Lot lotNo) {
     super.setLotNo(lotNo);
   }
 }

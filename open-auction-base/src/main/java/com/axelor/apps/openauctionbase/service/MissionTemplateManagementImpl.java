@@ -3,8 +3,10 @@ package com.axelor.apps.openauctionbase.service;
 import com.axelor.apps.base.db.Partner;
 import com.axelor.apps.openauction.db.ActivityHeader;
 import com.axelor.apps.openauction.db.MissionHeader;
+import com.axelor.apps.openauction.db.MissionLine;
 import com.axelor.apps.openauction.db.MissionTemplate;
 import com.axelor.apps.openauction.db.repo.MissionHeaderRepository;
+import com.axelor.inject.Beans;
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
 
@@ -19,6 +21,7 @@ public class MissionTemplateManagementImpl implements MissionTemplateManagement 
   @Inject
   public MissionTemplateManagementImpl(MissionHeaderRepository missionHeaderRepository) {
     this.missionHeaderRepository = missionHeaderRepository;
+    SkipActivity = false;
   }
 
   @Override
@@ -67,6 +70,16 @@ public class MissionTemplateManagementImpl implements MissionTemplateManagement 
   @Override
   @Transactional
   public void CreateActivity(MissionHeader pMissionHeader, ActivityHeader pActivityCodeToHeader) {
-    // TODO ActivityManagement
+    MissionLine lMissionLine = new MissionLine();
+    ActivityManagement activityManagement = Beans.get(ActivityManagement.class);
+    if (pActivityCodeToHeader != null) {
+      activityManagement.CreateActivityLineFromMission(
+          pActivityCodeToHeader, pMissionHeader, lMissionLine, false);
+    } else {
+      if (pMissionHeader.getActivityCodeToHeader() != null) {
+        activityManagement.CreateActivityLineFromMission(
+            pMissionHeader.getActivityCodeToHeader(), pMissionHeader, lMissionLine, false);
+      }
+    }
   }
 }

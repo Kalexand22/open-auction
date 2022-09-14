@@ -5,6 +5,8 @@ import com.axelor.apps.openauction.db.MissionServiceLine;
 import com.axelor.apps.openauction.db.repo.MissionServiceLineRepository;
 import com.axelor.apps.openauctionbase.repository.MissionServiceLineExt;
 import com.axelor.apps.openauctionbase.repository.MissionServiceLineRepositoryExt;
+import com.axelor.apps.openauctionbase.service.ActivityManagement;
+import com.axelor.apps.openauctionbase.service.ActivityManagementImpl;
 import com.axelor.apps.openauctionbase.service.MissionTemplateManagement;
 import com.axelor.apps.openauctionbase.service.MissionTemplateManagementImpl;
 
@@ -15,5 +17,6 @@ public class OpenAuctionBaseModule extends AxelorModule {
     bind(MissionTemplateManagement.class).to(MissionTemplateManagementImpl.class);
     bind(MissionServiceLineRepository.class).to(MissionServiceLineRepositoryExt.class);
     bind(MissionServiceLine.class).to(MissionServiceLineExt.class);
+    bind(ActivityManagement.class).to(ActivityManagementImpl.class);
   }
 }

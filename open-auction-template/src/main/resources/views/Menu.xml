@@ -41,8 +41,16 @@
     title="Liste des activités" action="activity.all"/>
   <action-view name="activity.all" title="Liste des activités"
     model="com.axelor.apps.openauction.db.ActivityHeader">
-    <view type="grid" name="activity-header-grid"/>
+    <view type="grid" name="activity-header-grid"/> 
     <view type="form" name="activity-header-form"/>
+  </action-view>
+
+  <menuitem name="menu-service-template-all" parent="menu-modele"
+    title="Liste des modèles de prestation" action="service.template.all"/>
+  <action-view name="service.template.all" title="Liste des modèles de prestation"
+    model="com.axelor.apps.openauction.db.ServiceTemplate">
+    <view type="grid" name="service-template-grid"/>
+    <view type="form" name="service-template-form"/>
   </action-view>
 
 
