@@ -32,6 +32,7 @@ public class MissionServiceLineExt extends MissionServiceLine {
     super.setAcceptToInvoice(acceptToInvoice);
   }
 
+  @Override
   public void setMissionNo(MissionHeader missionNo) {
     this.setMissionTemplateCode(missionNo.getMissionTemplateCode());
     // TODO MissionHeader.TESTFIELD("VAT Business Posting Group");
@@ -47,6 +48,7 @@ public class MissionServiceLineExt extends MissionServiceLine {
     super.setMissionNo(missionNo);
   }
 
+  @Override
   public void setLotNo(Lot lotNo) {
     super.setLotNo(lotNo);
   }

@@ -16,18 +16,24 @@ import com.axelor.apps.openauction.db.repo.ActivityHeaderRepository;
 import com.axelor.apps.openauction.db.repo.ActivityLineRepository;
 import com.axelor.apps.openauction.db.repo.MissionActivityLineRepository;
 import com.axelor.apps.openauction.db.repo.MissionServiceLineRepository;
+import com.axelor.apps.openauctionbase.repository.MissionServiceLineExt;
+import com.axelor.apps.openauctionbase.repository.MissionServiceLineRepositoryExt;
 import com.axelor.auth.db.User;
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
+import java.lang.invoke.MethodHandles;
 import java.time.LocalDate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ActivityManagementImpl implements ActivityManagement {
-  MissionServiceLineRepository missionServiceLineRepository;
+  MissionServiceLineRepositoryExt missionServiceLineRepository;
   MissionActivityLineRepository missionActivityLineRepository;
+  private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
   @Inject
   public ActivityManagementImpl(
-      MissionServiceLineRepository missionServiceLineRepository,
+      MissionServiceLineRepositoryExt missionServiceLineRepository,
       MissionActivityLineRepository missionActivityLineRepository) {
     this.missionServiceLineRepository = missionServiceLineRepository;
     this.missionActivityLineRepository = missionActivityLineRepository;
@@ -56,16 +62,28 @@ public class ActivityManagementImpl implements ActivityManagement {
     // TODO pActivityHeader.TestUsage(lDate);
 
     for (ActivityLine line : pActivityHeader.getActivityLineList()) {
-      if (!line.getTodoCondition().equals("")) {
-        if (pActivityHeader.getApplicableOn()
-            == ActivityHeaderRepository.APPLICABLEON_SELECT_HEADER) lLineToTreat = true;
-        if (pActivityHeader.getApplicableOn() == ActivityHeaderRepository.APPLICABLEON_SELECT_LINE)
+      lLineToTreat = false;
+      if (line.getTodoCondition() == null || !line.getTodoCondition().equals("")) {
+        log.debug(pActivityHeader.getApplicableOn());
+        if (pActivityHeader
+            .getApplicableOn()
+            .equals(ActivityHeaderRepository.APPLICABLEON_SELECT_HEADER)) {
+          lLineToTreat = true;
+        }
+        if (pActivityHeader
+            .getApplicableOn()
+            .equals(ActivityHeaderRepository.APPLICABLEON_SELECT_LINE)) {
           lLineToTreat =
               line.getLotTemplateFilter().equals(pLotTemplate)
                   || line.getLotTemplateFilter() == null;
-        if (line.getToDoApplicableTo() == ActivityLineRepository.TODOAPPLICABLETO_SELECT_SELLER)
+        }
+        if (line.getToDoApplicableTo()
+            .equals(ActivityLineRepository.TODOAPPLICABLETO_SELECT_SELLER)) {
           lcontact = pMissionHeader.getMasterContactNo();
-        else lcontact = null;
+        } else {
+          lcontact = null;
+        }
+
         if (lLineToTreat) {
           if (line.getServiceTemplateCode() != null)
             CreateMissionService(
@@ -149,7 +167,9 @@ public class ActivityManagementImpl implements ActivityManagement {
     MissionActivityLine lMissionActivityLine = new MissionActivityLine();
     if (pActivityLine.getServiceTemplateCode() == null) return;
 
-    Boolean lValidateOK = pActivityLine.getTodoTemplateCode().equals("");
+    Boolean lValidateOK =
+        pActivityLine.getTodoTemplateCode() == null
+            || pActivityLine.getTodoTemplateCode().equals("");
     missionServiceTemplate = pActivityLine.getServiceTemplateCode();
     for (ServiceTemplateLine missionServiceTemplateLine :
         missionServiceTemplate.getTemplateLineList()) {

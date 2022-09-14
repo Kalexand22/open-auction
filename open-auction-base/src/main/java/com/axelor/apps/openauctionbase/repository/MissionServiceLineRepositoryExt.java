@@ -8,16 +8,13 @@ import com.axelor.apps.openauction.db.repo.ServiceTemplateLineRepository;
 import java.time.LocalDate;
 
 public class MissionServiceLineRepositoryExt extends MissionServiceLineRepository {
-  public MissionServiceLineRepositoryExt() {
-    super();
-  }
 
   @Override
   public MissionServiceLine save(MissionServiceLine entity) {
     MissionServiceLine lMissServLine = null;
     MissionServiceLine lMissServLine2;
-    if (entity.getId() != 0) {
-      if (!entity.getAuctionBid()) {
+    if (entity.getId()== null) {
+      if (entity.getAuctionBid() != null && !entity.getAuctionBid()) {
         if (entity.getAuctionNo() != null) {
           entity.setTransactionType(MissionServiceLineRepository.TRANSACTIONTYPE_SELECT_VENTE);
         } else {
@@ -25,7 +22,6 @@ public class MissionServiceLineRepositoryExt extends MissionServiceLineRepositor
         }
       }
       if (entity.getDocumentNo() == null || entity.getDocumentNo() == 0) {
-
         entity.setDocumentNo(
             entity.getTransactionType() == MissionServiceLineRepository.TRANSACTIONTYPE_SELECT_VENTE
                 ? entity.getAuctionNo().getId()
@@ -49,7 +45,11 @@ public class MissionServiceLineRepositoryExt extends MissionServiceLineRepositor
                 .filter("self.documentNo = ?1", entity.getDocumentNo())
                 .order("-entryNo")
                 .fetchOne();
-        entity.setEntryNo(lMissServLine2.getEntryNo() + 1);
+        if (lMissServLine2 != null) {
+          entity.setEntryNo(lMissServLine2.getEntryNo() + 1);
+        } else {
+          entity.setEntryNo(1);
+        }        
       }
       if (entity.getPriceDate() == null) {
         // TODO gestion de la workdate
@@ -88,7 +88,12 @@ public class MissionServiceLineRepositoryExt extends MissionServiceLineRepositor
       entity.setChargeable(false);
       return;
     }
-    if (entity.getType() == ServiceTemplateLineRepository.TYPE_SELECT_SERVICE) {
+    if (entity.getType().equals(ServiceTemplateLineRepository.TYPE_SELECT_SERVICE)) {
+      if (entity.getInvoicingType() == null)
+      {
+        entity.setChargeable(false);
+        return;
+      }
       switch (entity.getInvoicingType()) {
         case MissionServiceLineRepository.INVOICINGTYPE_SELECT_BILLABLE:
           if (!entity.getChargeable()) entity.setChargeable(true);
@@ -105,7 +110,7 @@ public class MissionServiceLineRepositoryExt extends MissionServiceLineRepositor
             }
           } else {
             if (entity.getChargeable()
-                != (entity.getLotNo().getAuctionStatus()
+                != (entity.getLotNo().getAuctionStatus() 
                     == LotRepository.AUCTIONSTATUS_SELECT_AUCTIONNED))
               entity.setChargeable(
                   entity.getLotNo().getAuctionStatus()
