@@ -172,6 +172,10 @@
     <decimal name="inAccountAtDate" title="Montant en compte à date"/>
     <one-to-many name="missionLineList" ref="com.axelor.apps.openauction.db.MissionLine"
       mappedBy="missionNo"/>
+    <one-to-many name="missionServiceLineList"
+      ref="com.axelor.apps.openauction.db.MissionServiceLine" mappedBy="missionNo"/>
+    <one-to-many name="missionActivityLineList"
+      ref="com.axelor.apps.openauction.db.MissionActivityLine" mappedBy="missionNo"/>
     <one-to-many name="lotList" ref="com.axelor.apps.openauction.db.Lot"
       mappedBy="currentMissionNo"/>
     <many-to-many name="contactList" ref="com.axelor.apps.base.db.Partner"/>

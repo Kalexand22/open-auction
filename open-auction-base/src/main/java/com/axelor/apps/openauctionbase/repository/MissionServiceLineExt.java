@@ -4,12 +4,10 @@ import com.axelor.apps.openauction.db.Lot;
 import com.axelor.apps.openauction.db.MissionHeader;
 import com.axelor.apps.openauction.db.MissionServiceLine;
 import java.math.BigDecimal;
+import javax.persistence.Entity;
 
+@Entity
 public class MissionServiceLineExt extends MissionServiceLine {
-
-  public MissionServiceLineExt() {
-    super();
-  }
 
   public void setChargeable(boolean chargeable) {
     if (this.getAcceptToInvoice() != chargeable) {

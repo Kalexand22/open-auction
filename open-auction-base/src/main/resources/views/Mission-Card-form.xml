@@ -70,6 +70,19 @@
         <field name="canceledReason"/>
 
       </panel-related>
+      <panel-related title="Liste des lignes des prestations" field="missionLineList"
+        editable="true" canNew="false">
+        <field name="lotNoMission"/>
+        <field name="lot.description"/>
+        <field name="priority"/>
+        <field name="lotStatus"/>
+        <field name="lot.minimumValue" title="Estimation basse"/>
+        <field name="lot.maximumValue" title="Estimation haute"/>
+        <field name="lot.auctionNo"/>
+        <field name="canceled"/>
+        <field name="canceledReason"/>
+
+      </panel-related>
       <panel-related title="Liste des actions" field="taskList" onNew="team.tasks.all"/>
       <panel name="general" title="Général" itemSpan="4">
         <panel itemSpan="12">

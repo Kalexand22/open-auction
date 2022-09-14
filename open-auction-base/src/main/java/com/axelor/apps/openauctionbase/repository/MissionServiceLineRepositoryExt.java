@@ -13,7 +13,7 @@ public class MissionServiceLineRepositoryExt extends MissionServiceLineRepositor
   public MissionServiceLine save(MissionServiceLine entity) {
     MissionServiceLine lMissServLine = null;
     MissionServiceLine lMissServLine2;
-    if (entity.getId()== null) {
+    if (entity.getId() == null) {
       if (entity.getAuctionBid() != null && !entity.getAuctionBid()) {
         if (entity.getAuctionNo() != null) {
           entity.setTransactionType(MissionServiceLineRepository.TRANSACTIONTYPE_SELECT_VENTE);
@@ -49,7 +49,7 @@ public class MissionServiceLineRepositoryExt extends MissionServiceLineRepositor
           entity.setEntryNo(lMissServLine2.getEntryNo() + 1);
         } else {
           entity.setEntryNo(1);
-        }        
+        }
       }
       if (entity.getPriceDate() == null) {
         // TODO gestion de la workdate
@@ -71,7 +71,7 @@ public class MissionServiceLineRepositoryExt extends MissionServiceLineRepositor
     IsChargeable(entity);
     // TODO LawyerAnalysisMgt.SetSynchroRecord(Rec."Mission No.",'',Rec."Entry No.",8011449,0);
 
-    return super.save(entity);
+    return super.save((MissionServiceLine) entity);
   }
 
   private MissionServiceLine FindBidLine(MissionServiceLine rec) {
@@ -89,8 +89,7 @@ public class MissionServiceLineRepositoryExt extends MissionServiceLineRepositor
       return;
     }
     if (entity.getType().equals(ServiceTemplateLineRepository.TYPE_SELECT_SERVICE)) {
-      if (entity.getInvoicingType() == null)
-      {
+      if (entity.getInvoicingType() == null) {
         entity.setChargeable(false);
         return;
       }
@@ -110,7 +109,7 @@ public class MissionServiceLineRepositoryExt extends MissionServiceLineRepositor
             }
           } else {
             if (entity.getChargeable()
-                != (entity.getLotNo().getAuctionStatus() 
+                != (entity.getLotNo().getAuctionStatus()
                     == LotRepository.AUCTIONSTATUS_SELECT_AUCTIONNED))
               entity.setChargeable(
                   entity.getLotNo().getAuctionStatus()

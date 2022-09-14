@@ -163,7 +163,7 @@ public class ActivityManagementImpl implements ActivityManagement {
       Boolean pAuctionAct,
       Integer pTransactionLineNo) {
     ServiceTemplate missionServiceTemplate;
-    MissionServiceLine lMissionServiceLine = new MissionServiceLine();
+    MissionServiceLine lMissionServiceLine = new MissionServiceLineExt();
     MissionActivityLine lMissionActivityLine = new MissionActivityLine();
     if (pActivityLine.getServiceTemplateCode() == null) return;
 
@@ -186,7 +186,6 @@ public class ActivityManagementImpl implements ActivityManagement {
       lMissionServiceLine.setType(missionServiceTemplateLine.getType());
       // TODO setChargeableContactNo
       // lMissionServiceLine.setChargeableContactNo(pContact.getI);
-
       missionServiceLineRepository.save(lMissionServiceLine);
     }
     /*
