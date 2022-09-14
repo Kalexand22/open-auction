@@ -1,7 +1,6 @@
 package com.axelor.apps.openauctionbase.service;
 
 import com.axelor.apps.base.db.Partner;
-import com.axelor.apps.base.db.repo.CityRepository;
 import com.axelor.apps.openauction.db.ActivityHeader;
 import com.axelor.apps.openauction.db.ActivityLine;
 import com.axelor.apps.openauction.db.AuctionHeader;
@@ -135,8 +134,8 @@ public class ActivityManagementImpl implements ActivityManagement {
       lMissionServiceLine.setEntryNo(0);
       lMissionServiceLine.setTransactionType(
           pAuctionAct
-              ? MissionServiceLineRepository.OPENAUCTION_TRANSACTIONTYPE_SELECT_VENTE
-              : MissionServiceLineRepository.OPENAUCTION_TRANSACTIONTYPE_SELECT_MISSION);
+              ? MissionServiceLineRepository.TRANSACTIONTYPE_SELECT_VENTE
+              : MissionServiceLineRepository.TRANSACTIONTYPE_SELECT_MISSION);
       lMissionServiceLine.setAuctionNo(pAuctionHeader);
       lMissionServiceLine.setMissionNo(pMissionHeader);
       lMissionServiceLine.setLotNo(pLot);
@@ -144,8 +143,7 @@ public class ActivityManagementImpl implements ActivityManagement {
       lMissionServiceLine.setType(missionServiceTemplateLine.getType());
       // TODO setChargeableContactNo
       // lMissionServiceLine.setChargeableContactNo(pContact.getI);
-      
-            
+
       missionServiceLineRepository.save(lMissionServiceLine);
     }
   }

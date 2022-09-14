@@ -36,7 +36,7 @@
     <many-to-one name="unitofMeasureCode" title="Code unité de mesure"
       ref="com.axelor.apps.base.db.Unit"/>
     <string name="invoicingType" title="Type facturation"
-      selection="openauction.invoicingType.select"/>
+      selection="openauction.invoicingType.select.missionserviceline"/>
     <string name="commissionType" title="Type honoraire"
       selection="openauction.commissionType.select"/>
     <string name="contactImputationType" title="Type imputation contact"
@@ -95,14 +95,18 @@
     <boolean name="fixedAmount" title="Montant imposé"/>
     <string name="overheadInvoiceNo" title="N° facture FG"/>
     <decimal name="overheadInvoicedAmount" title="Montant facturé FG"/>
-    <string name="cancelled" title="Annulé" selection="openauction.cancelled.select"/>
+    <boolean name="cancelled" title="Annulé"/>
     <extra-code>
       <![CDATA[
 
       //openauction.transactionType.select
-      public static final String OPENAUCTION_TRANSACTIONTYPE_SELECT_MISSION = "Mission0";
-      public static final String OPENAUCTION_TRANSACTIONTYPE_SELECT_VENTE = "Auction1";
+      public static final String TRANSACTIONTYPE_SELECT_MISSION = "Mission0";
+      public static final String TRANSACTIONTYPE_SELECT_VENTE = "Auction1";
 
+      //openauction.invoicingType.select.missionserviceline
+      public static final String INVOICINGTYPE_SELECT_BILLABLE = "Billable";
+      public static final String INVOICINGTYPE_SELECT_BILLABLEONBID = "BillableOnBid";
+      public static final String INVOICINGTYPE_SELECT_UNBILLABLE = "Unbillable";
       ]]>
     </extra-code>
   </entity>

@@ -79,7 +79,7 @@
     <string name="currentMissionLotDocStatus" title="Statut administratif"
       selection="openauction.currentMissionLotDocStatus.select"/>
     <string name="auctionStatus" title="Statut vente"
-      selection="openauction.auctionStatus.select"/>
+      selection="openauction.auctionStatus.select.lot"/>
     <boolean name="closed" title="Cloturé"/>
     <decimal name="dueBalanceForThatLot" title="Solde dû pour ce lot"/>
     <many-to-one name="paymentMethodCode" title="Code mode règlement"
@@ -355,7 +355,22 @@
     <boolean name="reproduction" title="Reproduction"/>
     <many-to-one name="inventLocation" title="Lieu de dépôt"
       ref="com.axelor.apps.stock.db.StockLocation"/>
+    <extra-code>
+      <![CDATA[
 
+      //openauction.auctionStatus.select.lot
+      public static final String AUCTIONSTATUS_SELECT_INITIAL = "Initial0";
+      public static final String AUCTIONSTATUS_SELECT_TOSIGN = "ToSign1";
+      public static final String AUCTIONSTATUS_SELECT_TOPREPARE = "ToPrepare2";
+      public static final String AUCTIONSTATUS_SELECT_READYTOAUCTION = "ReadyToAuction3";
+      public static final String AUCTIONSTATUS_SELECT_AUCTION = "Auction4";
+      public static final String AUCTIONSTATUS_SELECT_AUCTIONNED = "Auctionned5";
+      public static final String AUCTIONSTATUS_SELECT_RETIRED = "Retired6";
+      public static final String AUCTIONSTATUS_SELECT_NOAUCTION = "NoAuction7";
+      public static final String AUCTIONSTATUS_SELECT_AUCTIONINGROUP = "AuctionInGroup8";
+      public static final String AUCTIONSTATUS_SELECT_UNGROUPED = "Ungrouped9";
+      ]]>
+    </extra-code>
     <track on="UPDATE">
       <field name="description"/>
       <field name="priceReserve"/>
@@ -406,5 +421,7 @@
       <field name="seatingCapacity"/>
       <message if="true" on="UPDATE">Lot mis à jour</message>
     </track>
+
+
   </entity>
 </domain-models>

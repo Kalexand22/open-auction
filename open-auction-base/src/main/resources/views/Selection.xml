@@ -63,7 +63,7 @@
     <option value="ImportFinish1">Import fini</option>
   </selection>
   <selection name="openauction.type.select.servicetemplateline">
-    <option value="Item0">Prestation</option>
+    <option value="Service0">Prestation</option>
     <option value="Ressource1">Ressource</option>
     <option value="Empty2"></option>
   </selection>
@@ -677,6 +677,18 @@
     <option value="Finished3">Terminé</option>
     <option value="Canceled4">Annulée</option>
   </selection>
+  <selection name="openauction.auctionStatus.select.lot">
+    <option value="Initial0">Initial</option>
+    <option value="ToSign1">A signer</option>
+    <option value="ToPrepare2">A préparer</option>
+    <option value="ReadyToAuction3">Prêt à vendre</option>
+    <option value="Auction4">En vente</option>
+    <option value="Auctionned5">Vendu</option>
+    <option value="Retired6">Retiré</option>
+    <option value="NoAuction7">Pas à vendre</option>
+    <option value="AuctionInGroup8">Regroupé vendu</option>
+    <option value="Ungrouped9">Dégroupé</option>
+  </selection>
   <selection name="openauction.buyerInvoicingStatus.select">
     <option value="NotInvoiced0">Non facturé</option>
     <option value="Invoicing1">En facture</option>
@@ -930,6 +942,11 @@
     <option value="AdjFeesOutlay0">Tout en achat</option>
     <option value="AdjFees1">Adj. Hono. en achat et Deb. en vente</option>
     <option value="Adj2">Adj. en achat et Hono. Deb. en vente</option>
+  </selection>
+  <selection name="openauction.invoicingType.select.missionserviceline">
+    <option value="Billable">Facturable</option>
+    <option value="BillableOnBid">Facturable si adjudication</option>
+    <option value="Unbillable">Non facturable</option>
   </selection>
   <selection name="openauction.inventoryServiceCalc.select">
     <option value="OnOperating0">Sur exploitation</option>
