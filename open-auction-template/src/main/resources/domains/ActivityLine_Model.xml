@@ -25,5 +25,13 @@
       ref="com.axelor.apps.openauction.db.ActivityHeader"/>
     <string name="defaultTodoStatus" title="Statut action par défaut"
       selection="openauction.defaultTodoStatus.select"/>
+    <extra-code>
+      <![CDATA[
+      //toDoApplicableTo
+      public static final String TODOAPPLICABLETO_SELECT_SELLER = "Seller0";
+      public static final String TODOAPPLICABLETO_SELECT_BUYER = "Buyer1";
+      public static final String TODOAPPLICABLETO_SELECT_EMPTY = "Empty2";
+      ]]>
+    </extra-code>
   </entity>
 </domain-models>

@@ -12,10 +12,14 @@ import com.axelor.apps.openauction.db.MissionLine;
 import com.axelor.apps.openauction.db.MissionServiceLine;
 import com.axelor.apps.openauction.db.ServiceTemplate;
 import com.axelor.apps.openauction.db.ServiceTemplateLine;
+import com.axelor.apps.openauction.db.repo.ActivityHeaderRepository;
+import com.axelor.apps.openauction.db.repo.ActivityLineRepository;
 import com.axelor.apps.openauction.db.repo.MissionActivityLineRepository;
 import com.axelor.apps.openauction.db.repo.MissionServiceLineRepository;
+import com.axelor.auth.db.User;
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
+import java.time.LocalDate;
 
 public class ActivityManagementImpl implements ActivityManagement {
   MissionServiceLineRepository missionServiceLineRepository;
@@ -42,20 +46,29 @@ public class ActivityManagementImpl implements ActivityManagement {
 
     MissionLine lMissionLine;
     Boolean lLineToTreat = false;
-    Partner lcontact = null;
+    Partner lcontact = pMissionHeader != null ? pMissionHeader.getMasterContactNo() : null;
+    ;
+    LocalDate lDate =
+        pIsAuction ? pAuctionHeader.getAuctionDate() : pMissionHeader.getMissionDate();
+    User lSalespersonCode = pIsAuction ? null : pMissionHeader.getSalespersonCode();
+    MissionHeader lMission = pIsAuction ? pAuctionHeader.getMissionNo() : pMissionHeader;
+
+    // TODO pActivityHeader.TestUsage(lDate);
+
     for (ActivityLine line : pActivityHeader.getActivityLineList()) {
       if (!line.getTodoCondition().equals("")) {
-        if (pActivityHeader.getApplicableOn() == "Header") lLineToTreat = true;
-        if (pActivityHeader.getApplicableOn() == "Line")
+        if (pActivityHeader.getApplicableOn()
+            == ActivityHeaderRepository.APPLICABLEON_SELECT_HEADER) lLineToTreat = true;
+        if (pActivityHeader.getApplicableOn() == ActivityHeaderRepository.APPLICABLEON_SELECT_LINE)
           lLineToTreat =
               line.getLotTemplateFilter().equals(pLotTemplate)
-                  || line.getLotTemplateFilter() == null
-                  || line.getLotTemplateFilter().equals("");
-        if (line.getToDoApplicableTo() == "Seller") lcontact = pMissionHeader.getMasterContactNo();
+                  || line.getLotTemplateFilter() == null;
+        if (line.getToDoApplicableTo() == ActivityLineRepository.TODOAPPLICABLETO_SELECT_SELLER)
+          lcontact = pMissionHeader.getMasterContactNo();
         else lcontact = null;
         if (lLineToTreat) {
           if (line.getServiceTemplateCode() != null)
-            CreateMissionServiceLine(
+            CreateMissionService(
                 line,
                 pAuctionHeader,
                 pMissionHeader,
@@ -64,6 +77,15 @@ public class ActivityManagementImpl implements ActivityManagement {
                 pIsAuction,
                 pTransactionLineNo);
           // TODO gestion Interaction + Todo
+          /*
+          *
+             IF (lActivityLine."Interaction Template Code" <> '') AND (pActionOnly = FALSE) THEN BEGIN
+               CreateInteraction(lActivityLine,pMissionNo,pAuctionNo,pLotNo,pTransactionLineNo); //AP09
+             END;
+             IF lActivityLine."Todo Template Code" <> '' THEN BEGIN
+               CreateTodo(lActivityLine,pMissionNo,pAuctionNo,pLotNo,lContactNo,lSalespersonCode,pTransactionLineNo); //AP09
+             END;
+          */
         }
       }
     }
@@ -114,7 +136,7 @@ public class ActivityManagementImpl implements ActivityManagement {
   }
 
   @Transactional
-  private void CreateMissionServiceLine(
+  private void CreateMissionService(
       ActivityLine pActivityLine,
       AuctionHeader pAuctionHeader,
       MissionHeader pMissionHeader,
@@ -132,6 +154,7 @@ public class ActivityManagementImpl implements ActivityManagement {
     for (ServiceTemplateLine missionServiceTemplateLine :
         missionServiceTemplate.getTemplateLineList()) {
       lMissionServiceLine.setEntryNo(0);
+      lMissionServiceLine.setDocumentNo(0L);
       lMissionServiceLine.setTransactionType(
           pAuctionAct
               ? MissionServiceLineRepository.TRANSACTIONTYPE_SELECT_VENTE
@@ -146,5 +169,84 @@ public class ActivityManagementImpl implements ActivityManagement {
 
       missionServiceLineRepository.save(lMissionServiceLine);
     }
+    /*
+     * LOCAL PROCEDURE CreateMissionService@1000000019(pActivityLine@1000000000 : Record 8011406;pMissionNo@1000000014 : Code[20];pAuctionNo@1000000013 : Code[20];pLotNo@1000000006 : Code[20];pContactNo@1000000009 : Code[20];pAuctionAct@1100481000 : Boolean;pTransactionLineNo@1100481001 : Integer);
+    VAR
+      lMissionSetup@1000000007 : Record 8011420;
+      lMissionServiceTemplate@1000000001 : Record 8011409;
+      lMissionServiceTemplateLine@1000000002 : Record 8011410;
+      lMissionServiceLine@1000000004 : Record 8011449;
+      lMissionActivityLine@1000000003 : Record 8011457;
+      lValidateOK@1000000008 : Boolean;
+      NameDataTypeSubtypeLength@1000000005 : Integer;
+    BEGIN
+      //AP02.ISAT.ST
+      IF pActivityLine."Service Template Code" = '' THEN BEGIN
+        EXIT;
+      END;
+
+      //InitGlobalServiceEntryNo(gLastServiceEntryNo); //ap20 isat.zw
+
+
+      //<<ISAT.ST avant validation du lot
+            IF pAuctionAct THEN
+              VALIDATE("Transaction Type", "Transaction Type"::Auction)
+            ELSE
+              VALIDATE("Transaction Type", "Transaction Type"::Mission);
+      //>>ISAT.ST
+            VALIDATE("Mission No.", pMissionNo);
+            VALIDATE("Auction No.",pAuctionNo);
+            VALIDATE("Lot No.",pLotNo);
+            VALIDATE("Transaction Line No.",pTransactionLineNo);//AP09
+            VALIDATE(Type,lMissionServiceTemplateLine.Type);
+            VALIDATE("No.",lMissionServiceTemplateLine."No.");
+            VALIDATE("Chargeable Contact No.",pContactNo);
+            VALIDATE("Contact Imputation Type"); //AP17.ST
+            IF lMissionServiceTemplateLine.Description <> '' THEN BEGIN
+              Description := lMissionServiceTemplateLine.Description;
+            END;
+            IF lMissionServiceTemplateLine."Unit of Measure Code" <> '' THEN BEGIN
+              "Unit of Measure Code" := lMissionServiceTemplateLine."Unit of Measure Code";
+            END;
+            "Mis. Service Template Code" := lMissionServiceTemplateLine."Service Template Code";
+            VALIDATE(Quantity,1);
+            "Accept To Invoice" := TRUE;
+            "Activity Header" := pActivityLine."Activity Code";
+            "Activity Line" := pActivityLine."Line No.";
+            "Web Site Code" := lMissionServiceTemplateLine."Web Site Code"; // AP22
+
+        //** A revoir : CG -> mission ou auction
+        //**    "Responsibility Center" := pMissionHeader."Responsibility Center";
+            UpdatePrice;
+            //VALIDATE(lMissionServiceLine."Price Includes VAT",TRUE); // isat.sf AP12 //désactivé ap19 isat.zw
+            INSERT(TRUE);
+          END;
+
+          //InitGlobalActivityEntryNo(gLastActivityEntryNo);   //ap20 isat.zw
+          WITH lMissionActivityLine DO BEGIN
+            //gLastActivityEntryNo += 1;
+            INIT;
+            //"Entry No." := gLastActivityEntryNo; //ap20 isat.zw
+            "Entry No." := 0; //ap20 isat.zw
+            "Document No." := ''; //ap20 isat.zw
+
+            "Mission No." := pMissionNo;
+            "Auction No." := pAuctionNo;
+            "Lot No." := pLotNo;
+            "Transaction Line No." := pTransactionLineNo;//AP09
+            "Activity Code" := pActivityLine."Activity Code";
+            "Activity Line No." := pActivityLine."Line No.";
+            Type := Type::Service;
+            "To-do No." := '';
+            "Mission Service Entry No." := lMissionServiceLine."Entry No.";
+            "Mission Service Doc. No." := lMissionServiceLine."Document No."; //ap20 isat.zw
+            "Interaction Template Code" := '';
+            "Previous Mission No." := '';
+            INSERT(TRUE);
+          END;
+        UNTIL lMissionServiceTemplateLine.NEXT = 0;
+      END;
+    END;
+     */
   }
 }

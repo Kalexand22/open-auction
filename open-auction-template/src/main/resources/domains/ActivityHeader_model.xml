@@ -21,5 +21,15 @@
       ref="com.axelor.apps.openauction.db.MissionTemplate"/>
     <one-to-many ref="com.axelor.apps.openauction.db.ActivityLine"
       name="activityLineList" mappedBy="activityCode"/>
+    <extra-code>
+      <![CDATA[
+      //ACTIVITYTYPE
+      public static final String ACTIVITYTYPE_SELECT_MISSION = "Mission1";
+      public static final String ACTIVITYTYPE_SELECT_AUCTION = "Auction0";
+
+      public static final String APPLICABLEON_SELECT_HEADER = "Header0";
+      public static final String APPLICABLEON_SELECT_LINE = "Line1";
+      ]]>
+    </extra-code>
   </entity>
 </domain-models>

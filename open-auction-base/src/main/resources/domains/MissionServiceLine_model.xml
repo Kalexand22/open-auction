@@ -53,10 +53,14 @@
     <string name="calculationType" title="Type calcul"
       selection="openauction.calculationType.select"/>
     <decimal name="qtyperUnitOfMeasure" title="Qté par unité de mesure"/>
-    <string name="missionTemplateCode" title="Code modèle Mission"/>
-    <string name="auctionTemplateCode" title="Code modèle vente"/>
-    <string name="lotTemplateCode" title="Code modèle lot"/>
-    <string name="misServiceTemplateCode" title="Code modèle prestation"/>
+    <many-to-one name="missionTemplateCode" title="Code modèle Mission"
+      ref="com.axelor.apps.openauction.db.MissionTemplate"/>
+    <many-to-one name="auctionTemplateCode" title="Code modèle vente"
+      ref="com.axelor.apps.openauction.db.AuctionTemplate"/>
+    <many-to-one name="lotTemplateCode" title="Code modèle lot"
+      ref="com.axelor.apps.openauction.db.LotTemplate"/>
+    <many-to-one name="misServiceTemplateCode" title="Code modèle prestation"
+      ref="com.axelor.apps.openauction.db.ServiceTemplate"/>
     <boolean name="priceIncludesVAT" title="Prix TTC"/>
     <decimal name="servicePercent" title="% prestation"/>
     <boolean name="acceptToInvoice" title="Accepter pour facturation"/>
