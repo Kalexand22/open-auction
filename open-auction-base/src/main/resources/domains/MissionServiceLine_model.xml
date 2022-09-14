@@ -13,7 +13,7 @@
     <string name="transactionType" title="Type de transaction"
       selection="openauction.transactionType.select"/>
     <integer name="transactionLineNo" title="N° ligne transaction"/>
-    <string name="type" title="Type" selection="openauction.type.select"/>
+    <string name="type" title="Type" selection="openauction.type.select.servicetemplateline"/>
     <string name="description" title="Désignation"/>
     <decimal name="quantity" title="Quantité"/>
     <decimal name="qtytoInvoice" title="Qté à facturer"/>
@@ -95,5 +95,16 @@
     <string name="overheadInvoiceNo" title="N° facture FG"/>
     <decimal name="overheadInvoicedAmount" title="Montant facturé FG"/>
     <string name="cancelled" title="Annulé" selection="openauction.cancelled.select"/>
+    <extra-code>
+      <![CDATA[
+
+      //openauction.transactionType.select
+      public static final String OPENAUCTION_TRANSACTIONTYPE_SELECT_MISSION = "Mission0";
+      public static final String OPENAUCTION_TRANSACTIONTYPE_SELECT_VENTE = "Auction1";
+
+      ]]>
+    </extra-code>
   </entity>
+
+
 </domain-models>

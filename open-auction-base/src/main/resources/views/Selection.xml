@@ -62,6 +62,11 @@
     <option value="Errors0">Anomalie</option>
     <option value="ImportFinish1">Import fini</option>
   </selection>
+  <selection name="openauction.type.select.servicetemplateline">
+    <option value="Item0">Prestation</option>
+    <option value="Ressource1">Ressource</option>
+    <option value="Empty2"></option>
+  </selection>
   <selection name="openauction.costingMethod.select">
     <option value="FIFO0">FIFO</option>
     <option value="LIFO1">LIFO</option>
