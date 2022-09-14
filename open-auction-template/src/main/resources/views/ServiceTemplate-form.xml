@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
   <grid name="service-template-grid" title="Modèles de prestation"
     model="com.axelor.apps.openauction.db.ServiceTemplate">
-    <field name="code"/> 
+    <field name="code"/>
     <field name="description"/>
     <field name="serviceType"/>
     <field name="currencyCode"/>

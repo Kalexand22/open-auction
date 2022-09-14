@@ -41,7 +41,7 @@
     title="Liste des activités" action="activity.all"/>
   <action-view name="activity.all" title="Liste des activités"
     model="com.axelor.apps.openauction.db.ActivityHeader">
-    <view type="grid" name="activity-header-grid"/> 
+    <view type="grid" name="activity-header-grid"/>
     <view type="form" name="activity-header-form"/>
   </action-view>
 

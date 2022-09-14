@@ -878,7 +878,7 @@
   <selection name="openauction.applicableOn.select">
     <option value="Header0">En-tête</option>
     <option value="Line1">Ligne</option>
-  </selection> 
+  </selection>
   <selection name="openauction.toDoApplicableTo.select">
     <option value="Seller0">Vendeur</option>
     <option value="Buyer1">Acheteur</option>

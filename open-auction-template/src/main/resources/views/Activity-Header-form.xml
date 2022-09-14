@@ -42,7 +42,7 @@
           </panel>
         </panel>
       </panel>
-  
+
       <panel title="Divers" name="divers">
         <field name="createDate"/>
         <field name="createdBy"/>
