@@ -333,8 +333,7 @@
     <option value="SMS5">SMS</option>
   </selection>
   <selection name="openauction.documentType.select">
-    <option value="Empty0">
-    </option>
+    <option value="Empty0"></option>
     <option value="SalesQte1">Devis</option>
     <option value="SalesBlnktOrd2">Cde ouv. vente</option>
     <option value="SalesOrdCnfrmn3">Conf. cde vente</option>
@@ -1125,8 +1124,7 @@
     <option value="Estimate1">Estimation</option>
   </selection>
   <selection name="openauction.lotAddedValue.select">
-    <option value="Empty0">
-    </option>
+    <option value="Empty0"></option>
     <option value="Free1">Exonéré</option>
     <option value="SpecificSum2">Forfait</option>
     <option value="Real3">Réel</option>

@@ -70,8 +70,8 @@
         <field name="canceledReason"/>
 
       </panel-related>
-      <panel-related title="Liste des lignes des prestations" field="missionServiceLineList"
-        editable="false" canNew="false">
+      <panel-related title="Liste des lignes des prestations"
+        field="missionServiceLineList" editable="false" canNew="false">
         <field name="lotNo"/>
         <field name="transactionType"/>
         <field name="type"/>

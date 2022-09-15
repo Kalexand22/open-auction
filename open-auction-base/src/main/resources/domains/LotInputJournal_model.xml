@@ -49,11 +49,13 @@
     <integer name="indentation" title="Indentation"/>
     <string name="locationCode" title="Code magasin"/>
     <string name="zoneCode" title="Code zone"/>
+    <string name="binCode" title="Code emplacement"/>
     <many-to-one name="auctionRoomCode" title="Code salle de vente"
       ref="com.axelor.apps.openauction.db.AuctionRoom"/>
     <string name="temporaryBlob" title="Blob Temporaire"/>
     <string name="createdLotNo" title="N° lot créé"/>
-    <string name="lotNo"/>
+    <many-to-one name="lotNo" title="N° lot" ref="com.axelor.apps.openauction.db.Lot"/>
+    <date name="dateToAuctionfrom"></date>
     <many-to-one name="auctionNo" title="N° vente à affecter"
       ref="com.axelor.apps.openauction.db.AuctionHeader"/>
     <integer name="passingOrderNo" title="N° ordre"/>
@@ -87,6 +89,7 @@
     <many-to-one name="historicalPeriod" title="Période historique"
       ref="com.axelor.apps.openauction.db.Periode"/>
     <string name="schoolType" title="Type école" selection="openauction.schoolType.select"/>
+    Unitof
     <many-to-one name="schoolCode" title="Code école"
       ref="com.axelor.apps.openauction.db.Ecole"/>
     <many-to-one name="styleCode" title="Code style"
@@ -104,7 +107,7 @@
     <string name="catalogTemporaryBlob" title="Blob Temporaire"/>
     <string name="technicalTemporaryBlob" title="Blob temporaire technique"/>
     <many-to-one name="unitofMeasure" title="Unité de mesure"
-      ref="com.axelor.apps.openauction.db.VehicleKind"/>
+      ref="com.axelor.apps.openauction.db.LotUnitofMeasure"/>
 
     <string name="registration" title="Immatriculation"/>
     <many-to-one name="kind" title="Genre"
