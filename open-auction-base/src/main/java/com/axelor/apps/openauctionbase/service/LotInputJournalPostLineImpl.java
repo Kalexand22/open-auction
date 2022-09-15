@@ -4,12 +4,21 @@ import com.axelor.apps.openauction.db.Lot;
 import com.axelor.apps.openauction.db.LotInputJournal;
 import com.axelor.apps.openauction.db.LotQuickInputJournal;
 import com.axelor.apps.openauction.db.MissionHeader;
+import com.axelor.apps.openauction.db.repo.LotRepository;
 import com.axelor.inject.Beans;
+import com.google.inject.Inject;
+
 import java.time.LocalDate;
 
 public class LotInputJournalPostLineImpl implements LotInputJournalPostLine {
   // LotInputJournal@1000000000 : Record 8011498;
   LotInputJournal lotInputJournal;
+  LotRepository lotRepo;
+
+  @Inject
+  public LotInputJournalPostLineImpl(LotRepository lotRepo) {
+    this.lotRepo = lotRepo;
+  }
 
   @Override
   public LotInputJournal runWithCheck(LotInputJournal pLotInputJournal) {
@@ -41,6 +50,8 @@ public class LotInputJournalPostLineImpl implements LotInputJournalPostLine {
     LotQuickInputJournal lTempLotQuickInputJournal = new LotQuickInputJournal();
     LotTemplateManagement lAPLotTemplateMgt = Beans.get(LotTemplateManagement.class);
 
+    
+    
     lTempLotQuickInputJournal.setMissionNo(lotInputJournal.getDocumentNo());
     lTempLotQuickInputJournal.setMissionLineNo(lotInputJournal.getDocumentLineNo());
     lTempLotQuickInputJournal.setValuationAtBest(lotInputJournal.getValuationAtBest());
@@ -83,11 +94,13 @@ public class LotInputJournalPostLineImpl implements LotInputJournalPostLine {
     LotInputJournal."Created Lot No." := lLotNoCreated; //Ap03 isat.zw
      */
     Lot lot = lAPLotTemplateMgt.CreateLotFromMission(lTempLotQuickInputJournal, lMissionHeader);
+    
+    
     String lLotNoCreated = "";
     lLotNoCreated = lAPLotTemplateMgt.GetLotNoCreated();
     lotInputJournal.setCreatedLotNo(lLotNoCreated);
-
     lot = transferFields(lotInputJournal, lot);
+    lotRepo.save(lot);
   }
 
   private Lot transferFields(LotInputJournal pLotInputJournal, Lot pLot) {
@@ -159,6 +172,32 @@ public class LotInputJournalPostLineImpl implements LotInputJournalPostLine {
 
     pLot.setYear(pLotInputJournal.getYear());
 
+    pLot.setAppellation(pLotInputJournal.getAppellation());
+    pLot.setCap(pLotInputJournal.getCap());
+    pLot.setVineyard(pLotInputJournal.getVineyard());
+
+    pLot.setCapacity(pLotInputJournal.getCapacity());
+    pLot.setDiameter(pLotInputJournal.getDiameter());
+    pLot.setGrapeHarvest(pLotInputJournal.getGrapeHarvest());
+    pLot.setGrapeVariety(pLotInputJournal.getGrapeVariety());
+    pLot.setLabel(pLotInputJournal.getLabel());
+    pLot.setLevel1(pLotInputJournal.getLevel1());
+    pLot.setName(pLotInputJournal.getName());
+    pLot.setPotentialofAgeing(pLotInputJournal.getPotentialofAgeing());
+    pLot.setPreserving(pLotInputJournal.getPreserving());
+
+    pLot.setTechnicalDescription(pLotInputJournal.getTechnicalDescription());
+    pLot.setVintage(pLotInputJournal.getVintage());
+
+
+    pLot.setAknowledgmentofReceipt(pLotInputJournal.getAknowledgmentofReceipt());
+    pLot.setEngineTrade(pLotInputJournal.getEngineTrade());
+    pLot.setEquipmentBrandNo(pLotInputJournal.getEquipmentBrandNo());
+    pLot.setFolderType(pLotInputJournal.getFolderType());
+    pLot.setKindofMaterial(pLotInputJournal.getKindofMaterial());
+
+    pLot.setReference(pLotInputJournal.getReference());
+    pLot.setSerialNo(pLotInputJournal.getSerialNo());
     return pLot;
   }
 }
