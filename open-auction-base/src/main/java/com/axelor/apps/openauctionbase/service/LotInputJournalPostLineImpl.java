@@ -7,7 +7,6 @@ import com.axelor.apps.openauction.db.MissionHeader;
 import com.axelor.apps.openauction.db.repo.LotRepository;
 import com.axelor.inject.Beans;
 import com.google.inject.Inject;
-
 import java.time.LocalDate;
 
 public class LotInputJournalPostLineImpl implements LotInputJournalPostLine {
@@ -50,8 +49,6 @@ public class LotInputJournalPostLineImpl implements LotInputJournalPostLine {
     LotQuickInputJournal lTempLotQuickInputJournal = new LotQuickInputJournal();
     LotTemplateManagement lAPLotTemplateMgt = Beans.get(LotTemplateManagement.class);
 
-    
-    
     lTempLotQuickInputJournal.setMissionNo(lotInputJournal.getDocumentNo());
     lTempLotQuickInputJournal.setMissionLineNo(lotInputJournal.getDocumentLineNo());
     lTempLotQuickInputJournal.setValuationAtBest(lotInputJournal.getValuationAtBest());
@@ -94,8 +91,7 @@ public class LotInputJournalPostLineImpl implements LotInputJournalPostLine {
     LotInputJournal."Created Lot No." := lLotNoCreated; //Ap03 isat.zw
      */
     Lot lot = lAPLotTemplateMgt.CreateLotFromMission(lTempLotQuickInputJournal, lMissionHeader);
-    
-    
+
     String lLotNoCreated = "";
     lLotNoCreated = lAPLotTemplateMgt.GetLotNoCreated();
     lotInputJournal.setCreatedLotNo(lLotNoCreated);
@@ -188,7 +184,6 @@ public class LotInputJournalPostLineImpl implements LotInputJournalPostLine {
 
     pLot.setTechnicalDescription(pLotInputJournal.getTechnicalDescription());
     pLot.setVintage(pLotInputJournal.getVintage());
-
 
     pLot.setAknowledgmentofReceipt(pLotInputJournal.getAknowledgmentofReceipt());
     pLot.setEngineTrade(pLotInputJournal.getEngineTrade());

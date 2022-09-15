@@ -71,9 +71,9 @@
     <string name="invSubLocation" title="Sous localisation inventaire"/>
     <many-to-one name="invClassification" title="Rubrique inventaire"
       ref="com.axelor.apps.openauction.db.ClassificationMembers"/>
-      <many-to-one name="invSubClassification" title="Sous-rubrique inventaire"
+    <many-to-one name="invSubClassification" title="Sous-rubrique inventaire"
       ref="com.axelor.apps.openauction.db.ClassificationMembers"/>
-      <many-to-one name="invMissionNo" title="N° mission inventaire"
+    <many-to-one name="invMissionNo" title="N° mission inventaire"
       ref="com.axelor.apps.openauction.db.MissionHeader"/>
     <integer name="invMissionLineNo" title="Ligne mission inventaire"/>
     <many-to-one name="leasingContactNo" title="N° contact leasing"

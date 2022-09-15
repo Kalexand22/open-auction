@@ -129,7 +129,7 @@
     <many-to-one name="unitofMeasure" title="Unité de mesure"
       ref="com.axelor.apps.openauction.db.LotUnitofMeasure"/>
     <string name="no2" title="N° 2"/>
-    <string name="serialNo" title="N° série" />
+    <string name="serialNo" title="N° série"/>
     <boolean name="systemLot" title="Lot système"/>
     <string name="description2" title="Designation 2"/>
     <string name="auctionDescription" title="Désignation vente"/>

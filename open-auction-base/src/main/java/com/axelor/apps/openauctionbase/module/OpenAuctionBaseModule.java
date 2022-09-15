@@ -18,7 +18,7 @@ public class OpenAuctionBaseModule extends AxelorModule {
 
   @Override
   protected void configure() {
-    
+
     bind(MissionServiceLineRepository.class).to(MissionServiceLineRepositoryExt.class);
     bind(MissionServiceLine.class).to(MissionServiceLineExt.class);
     bind(MissionTemplateManagement.class).to(MissionTemplateManagementImpl.class);
