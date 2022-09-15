@@ -489,12 +489,20 @@
     <option value="Done1">Terminé</option>
   </selection>
   <selection name="openauction.lotInventoryStatus.select">
-    <option value="Empty0">
-    </option>
+    <option value="Empty0"></option>
     <option value="ToReceive1">A recevoir</option>
     <option value="InStock2">En stock</option>
     <option value="Delivered3">Livré</option>
     <option value="InTransit4">En transit</option>
+  </selection>
+  <selection name="openauction.lotInventoryStatus.select.lot">
+    <option value="Unknown">Inconnu</option>
+    <option value="InStock">En stock</option>
+    <option value="Delivered">Livré</option>
+    <option value="Restitued">Restitué</option>
+    <option value="Ungrouped">Dégroupé</option>
+    <option value="InTransit4">En transfert</option>
+    <option value="ToPick">A enlever</option>
   </selection>
   <selection name="openauction.lotType.select">
     <option value="MeetingSale0">Faculté réunion vente</option>

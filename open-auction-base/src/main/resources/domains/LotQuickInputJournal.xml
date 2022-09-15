@@ -16,7 +16,7 @@
     <many-to-one name="lotTemplateCode" title="Code modèle lot"
       ref="com.axelor.apps.openauction.db.LotTemplate"/>
     <string name="description" title="Description"/>
-    <decimal name="quantity" title="Quantité"/>
+    <integer name="quantity" title="Quantité"/>
     <decimal name="appraisalValue" title="Valeur expertise"/>
     <decimal name="minAppraisalValue" title="Valeur expertise minimum"/>
     <decimal name="maxAppraisalValue" title="Valeur expertise maximum"/>
@@ -37,13 +37,13 @@
     <decimal name="currencyFactor" title="Facteur devise"/>
     <integer name="mainTextEntryNo" title="N° séquence text principale"/>
     <many-to-one name="lotCategorie1Code" title="Code catégorie 1"
-      ref="com.axelor.apps.openauction.db.ClassificationMembers"/>
+      ref="com.axelor.apps.openauction.db.ClassificationMembers1"/>
     <many-to-one name="lotCategorie2Code" title="Code catégorie 2"
-      ref="com.axelor.apps.openauction.db.ClassificationMembers"/>
+      ref="com.axelor.apps.openauction.db.ClassificationMembers2"/>
     <many-to-one name="lotCategorie3Code" title="Code catégorie 3"
-      ref="com.axelor.apps.openauction.db.ClassificationMembers"/>
+      ref="com.axelor.apps.openauction.db.ClassificationMembers3"/>
     <many-to-one name="lotCategorie4Code" title="Code catégorie 4"
-      ref="com.axelor.apps.openauction.db.ClassificationMembers"/>
+      ref="com.axelor.apps.openauction.db.ClassificationMembers4"/>
     <string name="originCountryCode" title="Code pays provenance"/>
     <string name="lineType" title="Type ligne" selection="innexaauction.lineType.select"/>
     <integer name="indentation" title="Indentation"/>
@@ -69,12 +69,17 @@
       ref="com.axelor.apps.openauction.db.LawyerBusiness"/>
     <string name="invLocation" title="Localisation inventaire"/>
     <string name="invSubLocation" title="Sous localisation inventaire"/>
-    <string name="invClassification" title="Rubrique inventaire"/>
-    <string name="invSubClassification" title="Sous-rubrique inventaire"/>
-    <string name="invMissionNo" title="N° mission inventaire"/>
+    <many-to-one name="invClassification" title="Rubrique inventaire"
+      ref="com.axelor.apps.openauction.db.ClassificationMembers"/>
+      <many-to-one name="invSubClassification" title="Sous-rubrique inventaire"
+      ref="com.axelor.apps.openauction.db.ClassificationMembers"/>
+      <many-to-one name="invMissionNo" title="N° mission inventaire"
+      ref="com.axelor.apps.openauction.db.MissionHeader"/>
     <integer name="invMissionLineNo" title="Ligne mission inventaire"/>
-    <string name="externalContactNo" title="N° contact leasing"/>
-    <string name="leasingContractNo" title="N° contrat leasing"/>
+    <many-to-one name="leasingContactNo" title="N° contact leasing"
+      ref="com.axelor.apps.base.db.Partner"/>
+    <many-to-one name="leasingContractNo" title="N° contrat leasing"
+      ref="com.axelor.apps.openauction.db.LeasingContract"/>
     <string name="binCode" title="Code emplacement"/>
     <integer name="lotNoMission" title="N° lot/mission"/>
     <decimal name="quotation1" title="Cotation 1"/>

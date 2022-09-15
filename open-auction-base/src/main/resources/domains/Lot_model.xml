@@ -51,7 +51,7 @@
       ref="com.axelor.apps.openauction.db.ClassificationMembers3"/>
     <many-to-one name="lotCategorie4Code1" title="Code catégorie 4"
       ref="com.axelor.apps.openauction.db.ClassificationMembers4"/>
-    <many-to-one name="auctionProdPostingGroup"
+    <many-to-one name="auctionProductFamily"
       title="Famille comptable de produit adjudication" ref="com.axelor.apps.base.db.ProductFamily"/>
     <many-to-one name="lotMissionPriceGroup" title="Groupe tarif mission lot"
       ref="com.axelor.apps.openauction.db.MissionLotPriceGroup"/>
@@ -71,7 +71,7 @@
     <many-to-one name="lotConditionCode" title="Etat lot"
       ref="com.axelor.apps.openauction.db.Code"/>
     <string name="lotInventoryStatus" title="Statut stock lot"
-      selection="openauction.lotInventoryStatus.select"/>
+      selection="openauction.lotInventoryStatus.select.lot"/>
     <string name="lotGeneralStatus" title="Statut général lot"
       selection="openauction.lotGeneralStatus.select"/>
     <string name="curMisLotOperationStatus" title="Statut opérationnel"
@@ -370,6 +370,15 @@
       public static final String AUCTIONSTATUS_SELECT_NOAUCTION = "NoAuction7";
       public static final String AUCTIONSTATUS_SELECT_AUCTIONINGROUP = "AuctionInGroup8";
       public static final String AUCTIONSTATUS_SELECT_UNGROUPED = "Ungrouped9";
+
+      //openauction.lotInventoryStatus.select.lot
+      public static final String LOTINVENTORYSTATUS_SELECT_UNKNOWN = "Unkonw";
+      public static final String LOTINVENTORYSTATUS_SELECT_INSTOCK = "InStock";
+      public static final String LOTINVENTORYSTATUS_SELECT_DELIVERED = "Delivered";
+      public static final String LOTINVENTORYSTATUS_SELECT_RESTITUED = "Restitued";
+      public static final String LOTINVENTORYSTATUS_SELECT_UNGROUPED = "Ungrouped";
+      public static final String LOTINVENTORYSTATUS_SELECT_INTRANSIT4 = "InTransit4";
+      public static final String LOTINVENTORYSTATUS_SELECT_TO_PICK = "ToPick";
       ]]>
     </extra-code>
     <track on="UPDATE">

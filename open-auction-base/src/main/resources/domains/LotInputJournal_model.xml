@@ -15,7 +15,7 @@
     <many-to-one name="lotTemplateCode" title="Code modèle lot"
       ref="com.axelor.apps.openauction.db.LotTemplate"/>
     <string name="description" title="Description" namecolumn="true"/>
-    <decimal name="quantity" title="Quantité"/>
+    <integer name="quantity" title="Quantité"/>
     <boolean name="valuationAtBest" title="Valeur au mieux"/>
     <string name="valueType" title="Type valeur" selection="openauction.valueType.select"/>
     <decimal name="value" title="Valeur"/>
