@@ -1,11 +1,9 @@
 package com.axelor.apps.openauctionbase.service;
 
-import com.axelor.apps.openauction.db.ArtLotDescription;
 import com.axelor.apps.openauction.db.Lot;
 import com.axelor.apps.openauction.db.LotInputJournal;
 import com.axelor.apps.openauction.db.LotQuickInputJournal;
 import com.axelor.apps.openauction.db.MissionHeader;
-import com.axelor.apps.openauction.db.VehicleLotDescription;
 import com.axelor.inject.Beans;
 import java.time.LocalDate;
 
@@ -93,7 +91,6 @@ public class LotInputJournalPostLineImpl implements LotInputJournalPostLine {
   }
 
   private Lot transferFields(LotInputJournal pLotInputJournal, Lot pLot) {
-    VehicleLotDescription lArtLotDescription = new VehicleLotDescription();
     pLot.setAgeCode(pLotInputJournal.getAgeCode());
     pLot.setAttributionType(pLotInputJournal.getAttributionType());
     pLot.setCentury(pLotInputJournal.getCentury());
@@ -125,40 +122,42 @@ public class LotInputJournalPostLineImpl implements LotInputJournalPostLine {
     pLot.setWeightUnit(pLotInputJournal.getWeightUnit());
     pLot.setWidth(pLotInputJournal.getWidth());
 
-    lArtLotDescription.setAlarm(pLotInputJournal.getAlarm());
-    lArtLotDescription.setAntiStartupCode(pLotInputJournal.getAntiStartupCode());
-    lArtLotDescription.setBatteryProblem(pLotInputJournal.getBatteryProblem());
-    lArtLotDescription.setBreakdownLorryCharge(pLotInputJournal.getBreakdownLorryCharge());
+    pLot.setAlarm(pLotInputJournal.getAlarm());
+    pLot.setAntiStartupCode(pLotInputJournal.getAntiStartupCode());
+    pLot.setBatteryProblem(pLotInputJournal.getBatteryProblem());
+    pLot.setBreakdownLorryCharge(pLotInputJournal.getBreakdownLorryCharge());
 
-    lArtLotDescription.setCarRadioFront(pLotInputJournal.getCarRadioFront());
-    lArtLotDescription.setColor(pLotInputJournal.getColor());
-    lArtLotDescription.setDamaged(pLotInputJournal.getDamaged());
-    lArtLotDescription.setDateOfFirstRegistration(pLotInputJournal.getDateOfFirstRegistration());
-    lArtLotDescription.setEmptyWeight(pLotInputJournal.getEmptyWeight());
-    lArtLotDescription.setEnergy(pLotInputJournal.getEnergy());
-    lArtLotDescription.setEngineTrade(pLotInputJournal.getEngineTrade());
-    lArtLotDescription.setEstimateKilometrage(pLotInputJournal.getEstimateKilometrage());
-    lArtLotDescription.setExternalReferenceCode(pLotInputJournal.getExternalReferenceCode());
+    pLot.setCarRadioFront(pLotInputJournal.getCarRadioFront());
+    pLot.setColor(pLotInputJournal.getColor());
+    pLot.setDamaged(pLotInputJournal.getDamaged());
+    pLot.setDateOfFirstRegistration(pLotInputJournal.getDateOfFirstRegistration());
+    pLot.setEmptyWeight(pLotInputJournal.getEmptyWeight());
+    pLot.setEnergy(pLotInputJournal.getEnergy());
+    pLot.setEngineTrade(pLotInputJournal.getEngineTrade());
+    pLot.setEstimateKilometrage(pLotInputJournal.getEstimateKilometrage());
+    pLot.setExternalReferenceCode(pLotInputJournal.getExternalReferenceCode());
 
-    lArtLotDescription.setGaged(pLotInputJournal.getGaged());
-    lArtLotDescription.setGrossTrailerWeight(pLotInputJournal.getGrossTrailerWeight());
-    lArtLotDescription.setGrossVehicleWeight(pLotInputJournal.getGrossVehicleWeight());
-    lArtLotDescription.setHorsePower(pLotInputJournal.getHorsePower());
-    lArtLotDescription.setKeys1(pLotInputJournal.getKeys1());
-    lArtLotDescription.setKilometrage(pLotInputJournal.getKilometrage());
-    lArtLotDescription.setKind(pLotInputJournal.getKind());
-    lArtLotDescription.setLotNatureCode(pLotInputJournal.getLotNatureCode());
-    lArtLotDescription.setMaintenanceNoteBook(pLotInputJournal.getMaintenanceNoteBook());
-    
-    lArtLotDescription.setRegistration(pLotInputJournal.getRegistration());
-    lArtLotDescription.setRegistrationDocument(pLotInputJournal.getRegistrationdocument());
-    lArtLotDescription.setRehabilitationcosts(pLotInputJournal.getRehabilitationcosts());
-    lArtLotDescription.setRegrouping(pLotInputJournal.getRegrouping());
-    lArtLotDescription.setSeatingCapacity(pLotInputJournal.getSeatingCapacity());
-    lArtLotDescription.setSpareWheel(pLotInputJournal.getSpareWheel());
-    lArtLotDescription.setTechnicalDescription(pLotInputJournal.getTechnicalDescription());
-    lArtLotDescription.setUnroadworthy(pLotInputJournal.getUnroadworthy());
-    lArtLotDescription.setu(pLotInputJournal.getMaintenanceNoteBook());
+    pLot.setGaged(pLotInputJournal.getGaged());
+    pLot.setGrossTrailerWeight(pLotInputJournal.getGrossTrailerWeight());
+    pLot.setGrossVehicleWeight(pLotInputJournal.getGrossVehicleWeight());
+    pLot.setHorsePower(pLotInputJournal.getHorsePower());
+    pLot.setKeys1(pLotInputJournal.getKeys1());
+    pLot.setKilometrage(pLotInputJournal.getKilometrage());
+    pLot.setKind(pLotInputJournal.getKind());
+    pLot.setLotNatureCode(pLotInputJournal.getLotNatureCode());
+    pLot.setMaintenanceNoteBook(pLotInputJournal.getMaintenanceNoteBook());
+
+    pLot.setRegistration(pLotInputJournal.getRegistration());
+    pLot.setRegistrationDocument(pLotInputJournal.getRegistrationdocument());
+    pLot.setRehabilitationcosts(pLotInputJournal.getRehabilitationcosts());
+    pLot.setRegrouping(pLotInputJournal.getRegrouping());
+    pLot.setSeatingCapacity(pLotInputJournal.getSeatingCapacity());
+    pLot.setSpareWheel(pLotInputJournal.getSpareWheel());
+    pLot.setTechnicalDescription(pLotInputJournal.getTechnicalDescription());
+    pLot.setUnroadworthy(pLotInputJournal.getUnroadworthy());
+    pLot.setvIN(pLotInputJournal.getvIN());
+
+    pLot.setYear(pLotInputJournal.getYear());
 
     return pLot;
   }

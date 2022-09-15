@@ -16,7 +16,6 @@
     <field name="masterContactNo.mobilePhone"/>
     <field name="masterContactNo.emailAddress"/>
     <field name="masterContactNo.fixedPhone"/>
-
   </grid>
   <form name="mission-header-form" title="Mission"
     model="com.axelor.apps.openauction.db.MissionHeader" width="large" canNew="false">
@@ -26,7 +25,6 @@
       <button name="valider" title="Créer une mission de vente"
         onClick="save,mission.create.auction.mission"/>
     </toolbar>
-
     <panel name="MainPanel">
       <field name="missionStatus" showTitle="false" colSpan="12" widget="NavSelect"/>
       <panel colSpan="2" itemSpan="12"/>
@@ -36,7 +34,6 @@
             domain="self.isContact = false" formview="partner-supplier-form"/>
           <field name="description" title="Titre de la mission"/>
           <field name="responsibilityCenter"/>
-
         </panel>
       </panel>
       <panel colSpan="3" itemSpan="12">
