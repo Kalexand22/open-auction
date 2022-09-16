@@ -7,12 +7,15 @@ import com.axelor.apps.openauction.db.LotQuickInputJournal;
 import com.axelor.apps.openauction.db.LotTemplate;
 import com.axelor.apps.openauction.db.MissionHeader;
 import com.axelor.apps.openauction.db.MissionLine;
+import com.axelor.apps.openauction.db.repo.LotInputJournalRepository;
 import com.axelor.apps.openauction.db.repo.LotRepository;
 import com.axelor.apps.openauctionbase.repository.LotExt;
 import com.axelor.apps.openauctionbase.util.TransferFields;
+import com.axelor.exception.AxelorException;
 import com.axelor.inject.Beans;
 import com.google.inject.Inject;
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.Date;
 
 public class LotTemplateManagementImpl implements LotTemplateManagement {
@@ -26,14 +29,16 @@ public class LotTemplateManagementImpl implements LotTemplateManagement {
   ContactLotManagement contactLotManagement;
   MissionStatusManagement statusManagement;
   LotRepository lotRepository;
+  LotInputJournalRepository lotInputJournalRepository;
   LotExt lot;
 
   @Inject
-  public LotTemplateManagementImpl(LotRepository lotRepository) {
+  public LotTemplateManagementImpl(LotRepository lotRepository, LotInputJournalRepository lotInputJournalRepository) {
     activityManagement = Beans.get(ActivityManagement.class);
     contactLotManagement = Beans.get(ContactLotManagement.class);
     statusManagement = Beans.get(MissionStatusManagement.class);
     this.lotRepository = lotRepository;
+    this.lotInputJournalRepository = lotInputJournalRepository;
     this.lot = new LotExt();
   }
 
@@ -231,16 +236,32 @@ public class LotTemplateManagementImpl implements LotTemplateManagement {
   }
 
   @Override
-  public void CalcGrossReserveByNetReserve(LotInputJournal pLotInputJournal) {
-    // TODO Auto-generated method stub
-
+  public void CalcGrossReserveByNetReserve(LotInputJournal pLotInputJournal) throws AxelorException {
+    if (pLotInputJournal.getLotTemplateCode() == null) {
+      throw new AxelorException(0, "Vous devez spécifier le modèle de lot pour calculer le prix de réserve");
+    } 
+    if (pLotInputJournal.getNetReservePrice() != BigDecimal.ZERO) {
+      BigDecimal reserveGrossPrice = pLotInputJournal.getNetReservePrice();
+      reserveGrossPrice = reserveGrossPrice.add(CalcCommissionWithBaseAmount(pLotInputJournal, pLotInputJournal.getNetReservePrice()));
+      reserveGrossPrice = reserveGrossPrice.setScale(0,BigDecimal.ROUND_HALF_UP);
+      pLotInputJournal.setGrossReservePrice(reserveGrossPrice); 
+      lotInputJournalRepository.save(pLotInputJournal);
+    }    
   }
 
   @Override
-  public void CalcNetReserveByGrossReserve(LotInputJournal pLotInputJournal) {
-    // TODO Auto-generated method stub
-
-  }
+  public void CalcNetReserveByGrossReserve(LotInputJournal pLotInputJournal) throws AxelorException {
+    if (pLotInputJournal.getLotTemplateCode() == null) {
+      throw new AxelorException(0, "Vous devez spécifier le modèle de lot pour calculer le prix de réserve");
+    } 
+    if (pLotInputJournal.getGrossReservePrice() != BigDecimal.ZERO) {
+      BigDecimal reserveNetPrice = pLotInputJournal.getGrossReservePrice();
+      reserveNetPrice = reserveNetPrice.subtract(CalcCommissionWithBaseAmount(pLotInputJournal, pLotInputJournal.getGrossReservePrice()));
+      reserveNetPrice = reserveNetPrice.setScale(0,BigDecimal.ROUND_HALF_UP);
+      pLotInputJournal.setNetReservePrice(reserveNetPrice); 
+      lotInputJournalRepository.save(pLotInputJournal);
+    }  
+  } 
 
   @Override
   public BigDecimal CalcCommissionWithBaseAmount(
