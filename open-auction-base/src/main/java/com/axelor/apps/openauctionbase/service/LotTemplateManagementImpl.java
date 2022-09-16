@@ -5,12 +5,11 @@ import com.axelor.apps.openauction.db.Lot;
 import com.axelor.apps.openauction.db.LotInputJournal;
 import com.axelor.apps.openauction.db.LotQuickInputJournal;
 import com.axelor.apps.openauction.db.LotTemplate;
-import com.axelor.apps.openauction.db.LotUnitofMeasure;
-import com.axelor.apps.openauction.db.LotValueEntry;
 import com.axelor.apps.openauction.db.MissionHeader;
 import com.axelor.apps.openauction.db.MissionLine;
 import com.axelor.apps.openauction.db.repo.LotRepository;
 import com.axelor.apps.openauctionbase.repository.LotExt;
+import com.axelor.apps.openauctionbase.util.TransferFields;
 import com.axelor.inject.Beans;
 import com.google.inject.Inject;
 import java.math.BigDecimal;
@@ -27,6 +26,7 @@ public class LotTemplateManagementImpl implements LotTemplateManagement {
   ContactLotManagement contactLotManagement;
   MissionStatusManagement statusManagement;
   LotRepository lotRepository;
+  LotExt lot;
 
   @Inject
   public LotTemplateManagementImpl(LotRepository lotRepository) {
@@ -34,30 +34,24 @@ public class LotTemplateManagementImpl implements LotTemplateManagement {
     contactLotManagement = Beans.get(ContactLotManagement.class);
     statusManagement = Beans.get(MissionStatusManagement.class);
     this.lotRepository = lotRepository;
+    this.lot = new LotExt();
   }
 
   @Override
-  public void CreateLot(
-      LotQuickInputJournal pLotQuickInputJournal, Lot pNewLot, Partner pContactNo) {
+  public LotExt CreateLot(LotQuickInputJournal pLotQuickInputJournal, Partner pContactNo) {
     // lLot@1000000002 : Record 8011404;
     LotExt lLot;
     LotTemplate lLotTemplate;
-    LotTemplate lLotTemplate2 = new LotTemplate();
-    LotUnitofMeasure lLotUnitofMeasure = new LotUnitofMeasure();
-    LotUnitofMeasure lLotUnitofMeasure2 = new LotUnitofMeasure();
-    LotValueEntry lLotValueEntry = new LotValueEntry();
-    Partner lContact = new Partner();
     lLotTemplate = pLotQuickInputJournal.getLotTemplateCode();
     if (lLotTemplate == null) {
-      return;
+      return null;
     }
     lLot = new LotExt();
     lLot.setLotTemplateCode(pLotQuickInputJournal.getLotTemplateCode());
     // TODO lLotTemplate.CheckBeforeUsage;
-    lLot.transferFields(lLotTemplate);
+    lLot = (LotExt)TransferFields.transferFields(lLotTemplate, lLot);
     lLot.setDescription(pLotQuickInputJournal.getDescription());
     lLot.setSearchDescription(lLot.getDescription());
-    lLot.setNo("");
     if (pLotQuickInputJournal.getLotNo() != null) {
       lLot.setNo(pLotQuickInputJournal.getLotNo().getNo());
     }
@@ -100,6 +94,7 @@ public class LotTemplateManagementImpl implements LotTemplateManagement {
     lotRepository.save(lLot);
     //   LotNo := lLot."No.";
 
+    // TODO LotUnitofMeasure
     //   lLotUnitofMeasure.SETRANGE("No.",lLotTemplate.Code);
     //   IF lLotUnitofMeasure.FINDSET THEN BEGIN
     //     REPEAT
@@ -111,21 +106,43 @@ public class LotTemplateManagementImpl implements LotTemplateManagement {
     //     UNTIL lLotUnitofMeasure.NEXT = 0;
     //   END;
 
-    //   ContactLotManagement.InsertSellerContactbyLot(pContactNo,lLot."No.");
     contactLotManagement.insertSellerContactbyLot(pContactNo, lLot);
+
+    lot = lLot;
+
+    return lLot;
   }
 
   @Override
   public void CreateLotFromContact(LotQuickInputJournal pLotQuickInputJournal, Partner pContact) {
-    // TODO Auto-generated method stub
-
+    LotExt lLot = new LotExt();
+    lLot = this.CreateLot(pLotQuickInputJournal, pContact);
+    this.CreateLotValueEntry(
+        pLotQuickInputJournal, lLot, lLot.getCurrentMissionNo(), lLot.getMissionLine());
   }
 
   @Override
   public Lot CreateLotFromMission(
       LotQuickInputJournal pLotQuickInputJournal, MissionHeader pMissionHeader) {
-    // TODO Auto-generated method stub
-    return null;
+    // lLot@1100281000 : Record 8011404;
+    LotExt lLot;
+    // lCounter@1000000001 : Integer;
+    int lCounter;
+    // lTotal@1000000000 : Integer;
+    int lTotal;
+    // lLotNoMission@1100481000 : Integer;
+    int lLotNoMission = pLotQuickInputJournal.getLotNoMission();
+
+    PostLotQuickInputFromMission(pLotQuickInputJournal, pMissionHeader);
+    // IF LotNo <> '' THEN BEGIN
+    if (lot != null) {
+
+      if (!lot.getLotGeneralStatus().equals(LotRepository.LOTGENERALSTATUS_SELECT_ONMISSION)) {
+        lot.setLotGeneralStatus(LotRepository.LOTGENERALSTATUS_SELECT_ONMISSION);
+        lotRepository.save(lot);
+      }
+    }
+    return lot;
   }
 
   @Override
@@ -273,8 +290,7 @@ public class LotTemplateManagementImpl implements LotTemplateManagement {
   }
 
   @Override
-  public String GetLotNoCreated() {
-    // TODO Auto-generated method stub
-    return null;
+  public Lot GetLotNoCreated() {
+    return lot;
   }
 }

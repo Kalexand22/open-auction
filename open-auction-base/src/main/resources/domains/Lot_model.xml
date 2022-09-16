@@ -379,6 +379,16 @@
       public static final String LOTINVENTORYSTATUS_SELECT_UNGROUPED = "Ungrouped";
       public static final String LOTINVENTORYSTATUS_SELECT_INTRANSIT4 = "InTransit4";
       public static final String LOTINVENTORYSTATUS_SELECT_TO_PICK = "ToPick";
+
+
+      //openauction.lotGeneralStatus.select.lot
+      public static final String LOTGENERALSTATUS_SELECT_IDENTIFIED = "Identified0";
+      public static final String LOTGENERALSTATUS_SELECT_ONMISSION = "OnMission1";
+      public static final String LOTGENERALSTATUS_SELECT_ONSALE = "OnSale2";
+      public static final String LOTGENERALSTATUS_SELECT_SOLD = "Sold3";
+      public static final String LOTGENERALSTATUS_SELECT_RETURN = "Return4";
+      public static final String LOTGENERALSTATUS_SELECT_CANCELED = "Canceled5";
+
       ]]>
     </extra-code>
     <track on="UPDATE">

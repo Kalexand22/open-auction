@@ -92,9 +92,8 @@ public class LotInputJournalPostLineImpl implements LotInputJournalPostLine {
      */
     Lot lot = lAPLotTemplateMgt.CreateLotFromMission(lTempLotQuickInputJournal, lMissionHeader);
 
-    String lLotNoCreated = "";
-    lLotNoCreated = lAPLotTemplateMgt.GetLotNoCreated();
-    lotInputJournal.setCreatedLotNo(lLotNoCreated);
+    lot = lAPLotTemplateMgt.GetLotNoCreated();
+    lotInputJournal.setCreatedLotNo(lot.getNo());
     lot = transferFields(lotInputJournal, lot);
     lotRepo.save(lot);
   }
