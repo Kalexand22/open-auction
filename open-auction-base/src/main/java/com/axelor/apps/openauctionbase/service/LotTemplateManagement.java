@@ -7,6 +7,8 @@ import com.axelor.apps.openauction.db.LotQuickInputJournal;
 import com.axelor.apps.openauction.db.MissionHeader;
 import com.axelor.apps.openauction.db.MissionLine;
 import com.axelor.apps.openauctionbase.repository.LotExt;
+import com.axelor.exception.AxelorException;
+
 import java.util.Date;
 
 public interface LotTemplateManagement {
@@ -83,10 +85,10 @@ public interface LotTemplateManagement {
   public void CreateLotInventoryEntry(LotQuickInputJournal pLotQuickInputJournal, Lot pLot);
   // PROCEDURE CalcGrossReserveByNetReserve@1100481003(VAR pLotInputJournal@1100481000 : Record
   // 8011498);
-  public void CalcGrossReserveByNetReserve(LotInputJournal pLotInputJournal);
+  public void CalcGrossReserveByNetReserve(LotInputJournal pLotInputJournal) throws Exception;
   // PROCEDURE CalcNetReserveByGrossReserve@1100481004(VAR pLotInputJournal@1100481000 : Record
   // 8011498);
-  public void CalcNetReserveByGrossReserve(LotInputJournal pLotInputJournal);
+  public void CalcNetReserveByGrossReserve(LotInputJournal pLotInputJournal) throws AxelorException;
   // PROCEDURE CalcCommissionWithBaseAmount@1100481005(VAR pLotInputJournal@1100481000 : Record
   // 8011498;pBaseAmount@1100481001 : Decimal) rAmountCommission : Decimal;
   public java.math.BigDecimal CalcCommissionWithBaseAmount(
