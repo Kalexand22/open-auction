@@ -1992,4 +1992,72 @@
     <option value="Classification32">Classification 3</option>
     <option value="Classification43">Classification 4</option>
   </selection>
+  <selection name="openauction.invoicingType.select.product">
+    <option value="Billable0">Facturable</option>
+    <option value="BillableonBid1">Facturable si adjudication</option>
+    <option value="Unbillable2">Non facturable</option>
+  </selection>
+  <selection name="openauction.commissionType.select.product">
+    <option value="General0">Général</option>
+    <option value="LotSpecific1">Spécifique lot</option>
+  </selection>
+  <selection name="openauction.contactImputationType.select.product">
+    <option value="Seller0">Vendeur</option>
+    <option value="Buyer1">Acheteur</option>
+    <option value="None2">Sans</option>
+  </selection>
+  <selection name="openauction.lotImputationType.select.product">
+    <option value="Direct0">Direct</option>
+    <option value="Indirect1">Indirect</option>
+    <option value="None2">Sans</option>
+  </selection>
+  <selection name="openauction.serviceType.select.product">
+    <option value="Commission0">Honoraires</option>
+    <option value="Expenses1">Debours</option>
+    <option value="AuctionBid2">Adjudication</option>
+  </selection>
+  <selection name="openauction.transactionType.select.product">
+    <option value="Auction0">Vente</option>
+    <option value="Mission1">Mission</option>
+    <option value="Segment2">Segment</option>
+  </selection>
+  <selection name="openauction.imputationBase.select.product">
+    <option value="Quantity0">Quantité</option>
+    <option value="BidPrice1">Valeur adjudication</option>
+  </selection>
+  <selection name="openauction.baseCalcBeforeAuction.select.product">
+    <option value="ReservePrice0">Prix de réserve</option>
+    <option value="EstimatedValueMin1">Valeur estimation min</option>
+    <option value="EstimatedValueMax2">Valeur estimation max</option>
+    <option value="MissionValue3">Valeur mission</option>
+    <option value="MissionAdjust4">Actualisation mission</option>
+    <option value="MissionInitValue5">Valeur initiale mission</option>
+    <option value="PopularLinesOnOperating6">Lignes de prisée sur exploitation</option>
+    <option value="PopularLinesMidOperatingRealization7">Lignes de prisée sur moyenne exploitation realisation</option>
+    <option value="PopularLinesOnRealization8">Lignes de prisée sur réalisation</option>
+    <option value="PopularLinesMid29">Lignes de prisée sur moyenne exp-real ou leasing</option>
+    <option value="PopularLinesOnRealization210">Lignes de prisée sur réal. ou leasing</option>
+  </selection>
+  <selection name="openauction.baseCalcAfterAuction.select.product">
+    <option value="BidPrice0">Prix marteau</option>
+    <option value="BidPriceExclVAT1">Adjudication HT</option>
+    <option value="ReservePrice2">Prix de réserve</option>
+    <option value="BidPriceInclVAT3">Adjudication TTC</option>
+  </selection>
+  <selection name="openauction.checkChargeAmountRange.select.product">
+    <option value="AfterBidding0">Après adjudication</option>
+    <option value="BeforeBidding1">Avant adjudication</option>
+    <option value="Always2">Toujours</option>
+  </selection>
+  <selection name="openauction.quantityEvaluation.select.product">
+    <option value="Empty0">
+    </option>
+    <option value="JudgmentAuctionDelay1">Délai ordonnance de vente</option>
+  </selection>
+  <selection name="openauction.servicePriceSystem.select.product">
+    <option value="Standard0">Standard</option>
+    <option value="Transport1">Transport</option>
+    <option value="Caretaker2">Gardiennage</option>
+    <option value="Unroadworthy3">Non roulant</option>
+  </selection>
 </object-views>

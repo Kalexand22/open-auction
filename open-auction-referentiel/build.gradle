@@ -9,4 +9,5 @@ axelor {
 dependencies {
 	api project(":modules:axelor-base")
 	api project(":modules:axelor-account")	
+	api project(":modules:open-auction-pricing")	
 }

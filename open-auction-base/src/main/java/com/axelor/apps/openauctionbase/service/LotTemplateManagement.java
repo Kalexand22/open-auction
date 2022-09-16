@@ -8,7 +8,6 @@ import com.axelor.apps.openauction.db.MissionHeader;
 import com.axelor.apps.openauction.db.MissionLine;
 import com.axelor.apps.openauctionbase.repository.LotExt;
 import com.axelor.exception.AxelorException;
-
 import java.util.Date;
 
 public interface LotTemplateManagement {

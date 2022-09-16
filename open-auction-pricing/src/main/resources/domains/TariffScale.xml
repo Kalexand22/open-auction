@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+  <module name="openauction" package="com.axelor.apps.openauction.db"/>
+  <entity name="TariffScale">
+    <string name="code" title="Code"/>
+    <string name="description" title="Désignation"/>
+    <string name="scaleType" title="Type barème" selection="openauction.scaleType.select"/>
+    <string name="calculationMethod" title="Mode calcul"
+      selection="openauction.calculationMethod.select"/>
+    <string name="calculationLevels" title="Calcul niveau"
+      selection="openauction.calculationLevels.select"/>
+  </entity>
+
+</domain-models>

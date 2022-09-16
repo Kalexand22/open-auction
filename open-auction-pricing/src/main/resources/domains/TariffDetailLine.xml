@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+  <module name="openauction" package="com.axelor.apps.openauction.db"/>
+  <entity name="TariffDetailLine">
+    <many-to-one name="itemNo" title="N° article" ref="com.axelor.apps.base.db.Product"/>
+    <boolean name="unitPriceItemCard" title="Prix fiche article"/>
+    <string name="transactionType" title="Type de transaction"
+      selection="openauction.transactionType.select"/>
+    <string name="documentType" title="Type document"
+      selection="openauction.documentType.select"/>
+    <string name="documentCode" title="Code document"/>
+    <string name="lotType" title="Type de lot" selection="openauction.lotType.select"/>
+    <string name="contactType" title="Type contact"
+      selection="openauction.contactType.select"/>
+    <many-to-one name="currencyCode" title="Code devise"
+      ref="com.axelor.apps.base.db.Currency"/>
+    <date name="startingDate" title="Date début"/>
+    <date name="endingDate" title="Date fin"/>
+    <string name="calculationType" title="Type calcul"
+      selection="openauction.calculationType.select"/>
+    <decimal name="unitPrice" title="Prix unitaire"/>
+    <decimal name="servicePercent" title="% prestation"/>
+    <many-to-one name="tariffScale" title="Barème tarification"
+      ref="com.axelor.apps.openauction.db.TariffScale"/>
+    <boolean name="priceIncludesVAT" title="Prix TTC"/>
+    <boolean name="allowInvoiceDisc" title="Remise facture autorisée"/>
+    <decimal name="minimumServiceAmount" title="Montant prestation minimum"/>
+    <decimal name="maximumServiceAmount" title="Montant prestation maximum"/>
+    <string name="commBaseCalc" title="Base calcul prestation"
+      selection="openauction.commBaseCalc.select"/>
+    <many-to-one name="tariffCode" title="Code"
+      ref="com.axelor.apps.openauction.db.TariffScale"/>
+    <decimal name="minBaseRate" title="Taux base minimum"/>
+    <decimal name="maxBaseRate" title="Taux de base maximum"/>
+    <decimal name="percentage" title="Poucentage"/>
+    <string name="scaleType" title="Type barème" selection="openauction.scaleType.select"/>
+    <decimal name="minAmount" title="Montant minimum"/>
+    <decimal name="maxAmount" title="Montant maximum"/>
+    <decimal name="amount" title="Montant"/>
+    <boolean name="lineUse" title="Ligne utilisée"/>
+    <many-to-one name="responsibilityCenter" title="Centre de gestion"
+      ref="com.axelor.apps.base.db.TradingName"/>
+    <integer name="pricePriority" title="Priorité prix"/>
+  </entity>
+
+</domain-models>

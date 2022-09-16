@@ -1,12 +1,17 @@
 package com.axelor.apps.openauctionbase.service;
 
 import com.axelor.apps.base.db.Partner;
+import com.axelor.apps.base.db.Product;
+import com.axelor.apps.openauction.db.ActivityHeader;
+import com.axelor.apps.openauction.db.ActivityLine;
 import com.axelor.apps.openauction.db.Lot;
 import com.axelor.apps.openauction.db.LotInputJournal;
 import com.axelor.apps.openauction.db.LotQuickInputJournal;
 import com.axelor.apps.openauction.db.LotTemplate;
 import com.axelor.apps.openauction.db.MissionHeader;
 import com.axelor.apps.openauction.db.MissionLine;
+import com.axelor.apps.openauction.db.MissionServiceLine;
+import com.axelor.apps.openauction.db.ServiceTemplateLine;
 import com.axelor.apps.openauction.db.repo.LotInputJournalRepository;
 import com.axelor.apps.openauction.db.repo.LotRepository;
 import com.axelor.apps.openauctionbase.repository.LotExt;
@@ -15,7 +20,6 @@ import com.axelor.exception.AxelorException;
 import com.axelor.inject.Beans;
 import com.google.inject.Inject;
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.util.Date;
 
 public class LotTemplateManagementImpl implements LotTemplateManagement {
@@ -33,7 +37,8 @@ public class LotTemplateManagementImpl implements LotTemplateManagement {
   LotExt lot;
 
   @Inject
-  public LotTemplateManagementImpl(LotRepository lotRepository, LotInputJournalRepository lotInputJournalRepository) {
+  public LotTemplateManagementImpl(
+      LotRepository lotRepository, LotInputJournalRepository lotInputJournalRepository) {
     activityManagement = Beans.get(ActivityManagement.class);
     contactLotManagement = Beans.get(ContactLotManagement.class);
     statusManagement = Beans.get(MissionStatusManagement.class);
@@ -236,37 +241,123 @@ public class LotTemplateManagementImpl implements LotTemplateManagement {
   }
 
   @Override
-  public void CalcGrossReserveByNetReserve(LotInputJournal pLotInputJournal) throws AxelorException {
+  public void CalcGrossReserveByNetReserve(LotInputJournal pLotInputJournal)
+      throws AxelorException {
     if (pLotInputJournal.getLotTemplateCode() == null) {
-      throw new AxelorException(0, "Vous devez spécifier le modèle de lot pour calculer le prix de réserve");
-    } 
+      throw new AxelorException(
+          0, "Vous devez spécifier le modèle de lot pour calculer le prix de réserve");
+    }
     if (pLotInputJournal.getNetReservePrice() != BigDecimal.ZERO) {
       BigDecimal reserveGrossPrice = pLotInputJournal.getNetReservePrice();
-      reserveGrossPrice = reserveGrossPrice.add(CalcCommissionWithBaseAmount(pLotInputJournal, pLotInputJournal.getNetReservePrice()));
-      reserveGrossPrice = reserveGrossPrice.setScale(0,BigDecimal.ROUND_HALF_UP);
-      pLotInputJournal.setGrossReservePrice(reserveGrossPrice); 
+      reserveGrossPrice =
+          reserveGrossPrice.add(
+              CalcCommissionWithBaseAmount(
+                  pLotInputJournal, pLotInputJournal.getNetReservePrice()));
+      reserveGrossPrice = reserveGrossPrice.setScale(0, BigDecimal.ROUND_HALF_UP);
+      pLotInputJournal.setGrossReservePrice(reserveGrossPrice);
       lotInputJournalRepository.save(pLotInputJournal);
-    }    
+    }
   }
 
   @Override
-  public void CalcNetReserveByGrossReserve(LotInputJournal pLotInputJournal) throws AxelorException {
+  public void CalcNetReserveByGrossReserve(LotInputJournal pLotInputJournal)
+      throws AxelorException {
     if (pLotInputJournal.getLotTemplateCode() == null) {
-      throw new AxelorException(0, "Vous devez spécifier le modèle de lot pour calculer le prix de réserve");
-    } 
+      throw new AxelorException(
+          0, "Vous devez spécifier le modèle de lot pour calculer le prix de réserve");
+    }
     if (pLotInputJournal.getGrossReservePrice() != BigDecimal.ZERO) {
       BigDecimal reserveNetPrice = pLotInputJournal.getGrossReservePrice();
-      reserveNetPrice = reserveNetPrice.subtract(CalcCommissionWithBaseAmount(pLotInputJournal, pLotInputJournal.getGrossReservePrice()));
-      reserveNetPrice = reserveNetPrice.setScale(0,BigDecimal.ROUND_HALF_UP);
-      pLotInputJournal.setNetReservePrice(reserveNetPrice); 
+      reserveNetPrice =
+          reserveNetPrice.subtract(
+              CalcCommissionWithBaseAmount(
+                  pLotInputJournal, pLotInputJournal.getGrossReservePrice()));
+      reserveNetPrice = reserveNetPrice.setScale(0, BigDecimal.ROUND_HALF_UP);
+      pLotInputJournal.setNetReservePrice(reserveNetPrice);
       lotInputJournalRepository.save(pLotInputJournal);
-    }  
-  } 
+    }
+  }
 
   @Override
   public BigDecimal CalcCommissionWithBaseAmount(
       LotInputJournal pLotInputJournal, BigDecimal pBaseAmount) {
-    // TODO Auto-generated method stub
+    MissionServiceLine lMissionServiceLine;
+    MissionHeader lMission = pLotInputJournal.getDocumentNo();
+    LotTemplate lLotTemplate = pLotInputJournal.getLotTemplateCode();
+    ActivityHeader lActivityHeader = lMission.getActivityCodeToHeader();
+
+    Product lItem;
+    MissionServicePriceManagement lMissionServPriceMgt;
+    for (ActivityLine lActivityLine : lActivityHeader.getActivityLineList()) {
+      if (lActivityLine.getServiceTemplateCode() != null) {
+        for (ServiceTemplateLine lMissionServiceTemplateLine :
+            lActivityLine.getServiceTemplateCode().getTemplateLineList()) {
+          if (lMissionServiceTemplateLine.getProduct() != null) {
+            lItem = lMissionServiceTemplateLine.getProduct();
+            // IF lItem."Service Type" = lItem."Service Type"::Commission THEN BEGIN
+
+          }
+
+          //  WITH lMissionServiceLine DO BEGIN
+          //                 INIT;
+          //                 VALIDATE("Mission No.", pLotInputJournal."Document No.");
+          //                 VALIDATE("Transaction Type", "Transaction Type"::Mission);
+
+          //                 //VALIDATE("Lot No.",pLotNo);
+          //                 "Lot Template Code" := pLotInputJournal."Lot Template Code";
+          //                 "Responsibility Center" := lMission."Responsibility Center";
+          //                 CASE "Transaction Type" OF
+          //                   "Transaction Type"::Mission : BEGIN
+          //                      "Lot Price Group" := lLotTemplate."Lot Mission Price Group";
+          //                      //"Transaction Line No." := Lot."Current Mission Line No.";
+          //                   END;
+          //                 END;
+          //                 VALIDATE(Type,lMissionServiceTemplateLine.Type);
+          //                 VALIDATE("No.",lMissionServiceTemplateLine."No.");
+          //                 IF lItem."Use Lot VAT Posting Group" THEN
+          //                   VALIDATE("VAT Prod. Posting Group", lLotTemplate."VAT Prod. Posting
+          // Group");
+          // //                VALIDATE("Chargeable Contact No.",lMission."Master Contact No.");
+          //                 IF lMissionServiceTemplateLine."Unit of Measure Code" <> '' THEN BEGIN
+          //                   "Unit of Measure Code" := lMissionServiceTemplateLine."Unit of
+          // Measure Code";
+          //                 END;
+          //                 "Mis. Service Template Code" := lMissionServiceTemplateLine."Service
+          // Template Code";
+          //                 VALIDATE(Quantity,1);
+          //                 "Accept To Invoice" := TRUE;
+          //                 "Activity Header" := lActivityLine."Activity Code";
+          //                 "Activity Line" := lActivityLine."Line No.";
+          //                 lMissionServPriceMgt.FindMissServPWithBaseAmount(lMissionServiceLine,
+          // pBaseAmount, FALSE);
+          //                 rAmountCommission += lMissionServiceLine."Amount Incl. VAT";
+          //               END;
+          //             END;
+        }
+      }
+    }
+
+    // Ap09 isat.zw 17/11/08
+
+    // IF NOT lActivityHeader.GET(lMission."Activity Code To Lines") THEN
+    //   CLEAR(lActivityHeader);
+    // lActivityLine.SETRANGE(lActivityLine."Activity Code", lActivityHeader.Code);
+    // IF lActivityLine.FINDSET(FALSE, FALSE) THEN BEGIN
+    //   REPEAT
+    //     IF lActivityLine."Service Template Code" <> '' THEN BEGIN
+    //       lMissionServiceTemplateLine.RESET;
+
+    //       lMissionServiceTemplateLine.SETRANGE("Service Template Code",lActivityLine."Service
+    // Template Code");
+    //       IF lMissionServiceTemplateLine.FIND('-') THEN BEGIN
+    //         REPEAT
+    //
+    //           END;
+    //         UNTIL lMissionServiceTemplateLine.NEXT = 0;
+    //       END;
+    //     END;
+    //   UNTIL lActivityLine.NEXT = 0;
+    // END;
     return null;
   }
 
