@@ -120,5 +120,5 @@ public interface LotTemplateManagement {
   public void SetToRegistIntegrationLot(
       Boolean pToRegistIntegrationLot, Integer pRegistIntegrationEntryNo);
 
-  public Lot GetLotNoCreated(); 
+  public Lot GetLotNoCreated();
 }

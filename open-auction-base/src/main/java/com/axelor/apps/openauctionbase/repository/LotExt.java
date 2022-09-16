@@ -4,6 +4,4 @@ import com.axelor.apps.openauction.db.Lot;
 import javax.persistence.Entity;
 
 @Entity
-public class LotExt extends Lot {
-
-}
+public class LotExt extends Lot {}

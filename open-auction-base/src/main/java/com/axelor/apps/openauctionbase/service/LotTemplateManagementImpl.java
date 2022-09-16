@@ -49,7 +49,7 @@ public class LotTemplateManagementImpl implements LotTemplateManagement {
     lLot = new LotExt();
     lLot.setLotTemplateCode(pLotQuickInputJournal.getLotTemplateCode());
     // TODO lLotTemplate.CheckBeforeUsage;
-    lLot = (LotExt)TransferFields.transferFields(lLotTemplate, lLot);
+    lLot = (LotExt) TransferFields.transferFields(lLotTemplate, lLot);
     lLot.setDescription(pLotQuickInputJournal.getDescription());
     lLot.setSearchDescription(lLot.getDescription());
     if (pLotQuickInputJournal.getLotNo() != null) {
