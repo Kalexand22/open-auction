@@ -6,11 +6,33 @@
   <entity name="TariffScale">
     <string name="code" title="Code"/>
     <string name="description" title="Désignation"/>
-    <string name="scaleType" title="Type barème" selection="openauction.scaleType.select"/>
+    <string name="scaleType" title="Type barème"
+      selection="openauction.scaleType.select.tariff"/>
     <string name="calculationMethod" title="Mode calcul"
       selection="openauction.calculationMethod.select"/>
     <string name="calculationLevels" title="Calcul niveau"
       selection="openauction.calculationLevels.select"/>
+    <extra-code>
+      <![CDATA[
+
+      //openauction.scaleType.select.tariff
+      public static final String SCALE_TYPE_TARIFF = "Tariff0";
+      public static final String SCALE_TYPE_JUDICIAL_INVENTORY = "JudicialInventory1";
+      public static final String SCALE_TYPE_VALUE_SYNCHRO = "ValueSynchro2";
+
+      //openauction.calculationMethod.select
+      public static final String CALCULATION_METHOD_PERCENTAGE = "Percentage0";
+      public static final String CALCULATION_METHOD_AMOUNT = "Amount1";
+
+
+      //openauction.calculationLevels.select
+      public static final String CALCULATION_LEVELS_SLICE = "Slice0";
+      public static final String CALCULATION_LEVELS_THRESHOLD = "Threshold1";
+
+
+      ]]>
+
+    </extra-code>
   </entity>
 
 </domain-models>

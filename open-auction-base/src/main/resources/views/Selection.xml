@@ -2060,4 +2060,49 @@
     <option value="Caretaker2">Gardiennage</option>
     <option value="Unroadworthy3">Non roulant</option>
   </selection>
+  <selection name="openauction.scaleType.select.tariff">
+    <option value="Tariff0">Tarif</option>
+    <option value="JudicialInventory1">Inventaire judiciaire</option>
+    <option value="ValueSynchro2">Synchronisation valeur</option>
+  </selection>
+  <selection name="openauction.calculationMethod.select.tariff">
+    <option value="Percentage0">Pourcentage</option>
+    <option value="Amount1">Montant</option>
+  </selection>
+  <selection name="openauction.calculationLevels.select.tariff">
+    <option value="Slice0">Par tranche</option>
+    <option value="Threshold1">Par seuil</option>
+  </selection>
+  <selection name="openauction.transactionType.select.tariff">
+    <option value="Mission0">Mission</option>
+    <option value="Auction1">Vente</option>
+    <option value="Segment2">Segment</option>
+  </selection>
+  <selection name="openauction.documentType.select.tariff">
+    <option value="All0">Tous les documents</option>
+    <option value="Template1">Modèle</option>
+    <option value="No2">N°</option>
+  </selection>
+  <selection name="openauction.lotType.select.tariff">
+    <option value="AllLot0">Tous les lots</option>
+    <option value="LotPriceGroup1">Groupe prix lot</option>
+    <option value="Lot2">Lot</option>
+  </selection>
+  <selection name="openauction.contactType.select.tariff">
+    <option value="AllContact0">Tous les contacts</option>
+    <option value="ContactPriceGroup1">Groupe prix contact</option>
+    <option value="Contact2">Contact</option>
+  </selection>
+  <selection name="openauction.calculationType.select.tariff">
+    <option value="UnitPrice0">Prix unitaire</option>
+    <option value="Service1">% Commission</option>
+    <option value="CommissionScale2">Barème commission</option>
+  </selection>
+  <selection name="openauction.commBaseCalc.select.tariff">
+    <option value="Empty0">
+    </option>
+    <option value="ReservePrice1">Prix de réserve</option>
+    <option value="EstimatedValueMin2">Valeur estimation min</option>
+    <option value="EstimatedValueMax3">Valeur estimation max</option>
+  </selection>
 </object-views>
