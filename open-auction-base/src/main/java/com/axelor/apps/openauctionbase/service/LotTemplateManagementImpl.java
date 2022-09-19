@@ -287,7 +287,8 @@ public class LotTemplateManagementImpl implements LotTemplateManagement {
     ActivityHeader lActivityHeader = lMission.getActivityCodeToHeader();
 
     Product lItem;
-    MissionServicePriceManagement lMissionServPriceMgt;
+    MissionServicePriceManagement lMissionServPriceMgt =
+        Beans.get(MissionServicePriceManagement.class);
     for (ActivityLine lActivityLine : lActivityHeader.getActivityLineList()) {
       if (lActivityLine.getServiceTemplateCode() != null) {
         for (ServiceTemplateLine lMissionServiceTemplateLine :

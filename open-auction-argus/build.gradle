@@ -7,6 +7,6 @@ axelor {
 } 
 
 dependencies {
-	api project(":modules:axelor-base")
+	api "com.axelor.apps:axelor-base:${aosVersion}"
 	api project(":modules:open-auction-referentiel")	
 }

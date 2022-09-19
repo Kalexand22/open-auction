@@ -7,6 +7,6 @@ axelor {
 } 
 
 dependencies {
-	api project(":modules:axelor-base")
-	api project(":modules:axelor-account")	
+	api "com.axelor.apps:axelor-base:${aosVersion}"
+	api "com.axelor.apps:axelor-account:${aosVersion}"
 }

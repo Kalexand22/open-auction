@@ -7,11 +7,11 @@ axelor {
 } 
 
 dependencies {
-	api project(":modules:axelor-base")
-	api project(":modules:axelor-account")	
-	api project(":modules:axelor-stock")
-	api project(":modules:axelor-purchase")
-	api project(":modules:axelor-sale")
+	api "com.axelor.apps:axelor-base:${aosVersion}"
+	api "com.axelor.apps:axelor-account:${aosVersion}"
+	api "com.axelor.apps:axelor-stock:${aosVersion}"	
+	api "com.axelor.apps:axelor-sale:${aosVersion}"	
+	api "com.axelor.apps:axelor-purchase:${aosVersion}"	
 	api project(":modules:open-auction-referentiel")
 	api project(":modules:open-auction-template")
 	api project(":modules:open-auction-pricing")
